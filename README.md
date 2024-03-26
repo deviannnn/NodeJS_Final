@@ -30,10 +30,9 @@ To get started with StarBoyPOS in **_Dev Environment_**, follow these steps:
    ```bash
    SECRET_KEY=yJozZ6Ktk960mtt7l18eoOEUxEiRaOWw
    SESSION_KEY=5mNLMNsfCHLvjobVmLKqcrMON8iB6X4G
-   MAIL_PASSWORD=rnbvordtpyvpxewu
+   MAIL_PASSWORD= [For privacy reasons, please use your own Mail Password]
    DOMAIN=localhost:3000
    DB_DEV_CONSTRING=mongodb+srv://admin:admin@lytuanan1911.jtassu8.mongodb.net/StarBoyPOS_dev?retryWrites=true&w=majority
-   DB_PROD_CONSTRING=mongodb+srv://admin:admin@lytuanan1911.jtassu8.mongodb.net/StarBoyPOS?retryWrites=true&w=majority
 
 4. **Run the Application:**
 
@@ -63,9 +62,3 @@ To get started with StarBoyPOS in **_Dev Environment_**, follow these steps:
 ### *Production Environment*
 
 To get started with StarBoyPOS in **_Production Environment_**, visit the link: [starboypos](https://starboypos.up.railway.app)
-
-   **Account provided:**
-   ```bash
-    Role: Admin
-    username: admin
-    password: admin
