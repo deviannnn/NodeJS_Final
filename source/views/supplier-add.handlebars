@@ -1,0 +1,103 @@
+<div class="row">
+    <div class="col-12 col-lg-8 mx-auto">
+        <form style="height: 408px;">
+            <div class="card p-3 bg-white">
+                <h5 class="font-weight-bolder mb-0">About Supplier</h5>
+                <p class="mb-0 text-sm">Mandatory informations</p>
+                <div class="">
+                    <div class="row mt-3">
+                        <div class="col-12 col-sm-6">
+                            <label>Full Name</label>
+                            <input class="form-control" type="text" id="name" name="name" placeholder="eg. Nguyen Van A"
+                                onfocus="focused(this)">
+                        </div>
+                        <div class="col-12 col-sm-3 mt-3 mt-sm-0">
+                            <label>Gender</label>
+                            <div class="choices" data-type="select-one">
+                                <select class="form-control" id="gender" name="gender" onfocus="focused(this)">
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-3 mt-3 mt-sm-0">
+                            <label>Birthday</label>
+                            <input class="form-control" type="date" id="birthday" name="birthday"
+                                onfocus="focused(this)">
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-12 col-sm-6">
+                            <label>Email</label>
+                            <input class="form-control" type="text" id="email" name="email"
+                                placeholder="eg. staff@gmail.com" onfocus="focused(this)">
+                        </div>
+                        <div class="col-12 col-sm-6 mt-3 mt-sm-0">
+                            <label>Phone Number</label>
+                            <input class="form-control" type="email" id="phone" name="phone"
+                                placeholder="eg. 0987654321" onfocus="focused(this)">
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-12 col-sm-2">
+                            <label>Address</label>
+                            <input class="form-control" type="text" id="address_num" name="address_num"
+                                placeholder="No." onfocus="focused(this)">
+                        </div>
+                        <div class="col-12 col-sm-4">
+                            <label>&nbsp;</label>
+                            <input class="form-control" type="text" id="address_street" name="address_street"
+                                placeholder="Street" onfocus="focused(this)">
+                        </div>
+                        <div class="col-12 col-sm-2">
+                            <label>&nbsp;</label>
+                            <input class="form-control" type="text" id="address_ward" name="address_ward"
+                                placeholder="Ward" onfocus="focused(this)">
+                        </div>
+                        <div class="col-12 col-sm-2">
+                            <label>&nbsp;</label>
+                            <input class="form-control" type="text" id="address_district" name="address_district"
+                                placeholder="District" onfocus="focused(this)">
+                        </div>
+                        <div class="col-12 col-sm-2 mt-3 mt-sm-0">
+                            <label>&nbsp;</label>
+                            <input class="form-control" type="text" id="address_city" name="address_city"
+                                placeholder="City" onfocus="focused(this)">
+                        </div>
+                    </div>
+                    <div class="button-row d-flex mt-4">
+                        <button class="btn bg-gradient-dark ms-auto mb-0" type="button" data-bs-toggle="modal"
+                            data-bs-target="#validate-modal">Next</button>
+                        <div class="modal fade" id="validate-modal" tabindex="-1" role="dialog"
+                            aria-labelledby="modal-default" aria-hidden="true">
+                            <div class="modal-dialog modal- modal-dialog-centered modal-" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h6 class="modal-title" id="modal-title-default"><b>Verify Account Creation</b>
+                                        </h6>
+                                        <button type="button" class="btn-close text-dark" data-bs-dismiss="modal"
+                                            aria-label="Close">
+                                            <span aria-hidden="true">×</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>After you verify this message, the system will send a link that lasts for
+                                            <b>1 minute</b>
+                                            to use for the first login.</p>
+                                        <p>Remind them to check their email immediately after you click the confirm
+                                            button below.</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn bg-gradient-success">Confirm</button>
+                                        <button type="button" class="btn bg-gradient-secondary ml-auto"
+                                            data-bs-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

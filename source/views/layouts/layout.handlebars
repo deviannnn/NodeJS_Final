@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="/assets/img/favicon.png">
+    <title>S T A R B O Y</title>
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+    <link href="https://db.onlinewebfonts.com/c/7035ead8175cc6b0fe6c460be5baca9a?family=Frisans+W01+Bold"
+        rel="stylesheet">
+    <!-- Nucleo Icons -->
+    <link href="/assets/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="/assets/css/nucleo-svg.css" rel="stylesheet" />
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <link href="/assets/css/nucleo-svg.css" rel="stylesheet" />
+    <!-- CSS Files -->
+    <link id="pagestyle" href="/assets/css/soft-ui-dashboard.css?v=1.0.7" rel="stylesheet" />
+    <!-- DataTables -->
+    <link rel="stylesheet" href="/assets/plugins/datatables-bs4/css/dataTables.bootstrap4.css">
+</head>
+
+<body class="g-sidenav-show bg-gray-100 g-sidenav-pinned">
+    <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 "
+        id="sidenav-main">
+        <div class="sidenav-header">
+            <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
+                aria-hidden="true" id="iconSidenav"></i>
+            <a class="navbar-brand m-0" href="/">
+                <img src="/assets/img/logo-ct-dark.png" class="navbar-brand-img h-100 mb-2" alt="main_logo">
+                <span class="ms-1" style="font-family: Frisans W01 Bold; font-size: 23px; color: #cb0c9f">STARBOY</span>
+            </a>
+        </div>
+        <hr class="horizontal dark mt-0">
+        <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link {{#isEqual title 'Dashboard'}} active {{/isEqual}}" href="/">
+                        <div
+                            class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g transform="translate(-1716.000000, -439.000000)" fill="#FFFFFF"
+                                        fill-rule="nonzero">
+                                        <g transform="translate(1716.000000, 291.000000)">
+                                            <g transform="translate(0.000000, 148.000000)">
+                                                <path class="color-background"
+                                                    d="M46.7199583,10.7414583 L40.8449583,0.949791667 C40.4909749,0.360605034 39.8540131,0 39.1666667,0 L7.83333333,0 C7.1459869,0 6.50902508,0.360605034 6.15504167,0.949791667 L0.280041667,10.7414583 C0.0969176761,11.0460037 -1.23209662e-05,11.3946378 -1.23209662e-05,11.75 C-0.00758042603,16.0663731 3.48367543,19.5725301 7.80004167,19.5833333 L7.81570833,19.5833333 C9.75003686,19.5882688 11.6168794,18.8726691 13.0522917,17.5760417 C16.0171492,20.2556967 20.5292675,20.2556967 23.494125,17.5760417 C26.4604562,20.2616016 30.9794188,20.2616016 33.94575,17.5760417 C36.2421905,19.6477597 39.5441143,20.1708521 42.3684437,18.9103691 C45.1927731,17.649886 47.0084685,14.8428276 47.0000295,11.75 C47.0000295,11.3946378 46.9030823,11.0460037 46.7199583,10.7414583 Z"
+                                                    opacity="0.598981585"></path>
+                                                <path class="color-background"
+                                                    d="M39.198,22.4912623 C37.3776246,22.4928106 35.5817531,22.0149171 33.951625,21.0951667 L33.92225,21.1107282 C31.1430221,22.6838032 27.9255001,22.9318916 24.9844167,21.7998837 C24.4750389,21.605469 23.9777983,21.3722567 23.4960833,21.1018359 L23.4745417,21.1129513 C20.6961809,22.6871153 17.4786145,22.9344611 14.5386667,21.7998837 C14.029926,21.6054643 13.533337,21.3722507 13.0522917,21.1018359 C11.4250962,22.0190609 9.63246555,22.4947009 7.81570833,22.4912623 C7.16510551,22.4842162 6.51607673,22.4173045 5.875,22.2911849 L5.875,44.7220845 C5.875,45.9498589 6.7517757,46.9451667 7.83333333,46.9451667 L19.5833333,46.9451667 L19.5833333,33.6066734 L27.4166667,33.6066734 L27.4166667,46.9451667 L39.1666667,46.9451667 C40.2482243,46.9451667 41.125,45.9498589 41.125,44.7220845 L41.125,22.2822926 C40.4887822,22.4116582 39.8442868,22.4815492 39.198,22.4912623 Z">
+                                                </path>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
+                        <span class="nav-link-text ms-1">Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="/pos">
+                        <div
+                            class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
+                                <path
+                                    d="M64 0C46.3 0 32 14.3 32 32V96c0 17.7 14.3 32 32 32h80v32H87c-31.6 0-58.5 23.1-63.3 54.4L1.1 364.1C.4 368.8 0 373.6 0 378.4V448c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V378.4c0-4.8-.4-9.6-1.1-14.4L488.2 214.4C483.5 183.1 456.6 160 425 160H208V128h80c17.7 0 32-14.3 32-32V32c0-17.7-14.3-32-32-32H64zM96 48H256c8.8 0 16 7.2 16 16s-7.2 16-16 16H96c-8.8 0-16-7.2-16-16s7.2-16 16-16zM64 432c0-8.8 7.2-16 16-16H432c8.8 0 16 7.2 16 16s-7.2 16-16 16H80c-8.8 0-16-7.2-16-16zm48-168a24 24 0 1 1 0-48 24 24 0 1 1 0 48zm120-24a24 24 0 1 1 -48 0 24 24 0 1 1 48 0zM160 344a24 24 0 1 1 0-48 24 24 0 1 1 0 48zM328 240a24 24 0 1 1 -48 0 24 24 0 1 1 48 0zM256 344a24 24 0 1 1 0-48 24 24 0 1 1 0 48zM424 240a24 24 0 1 1 -48 0 24 24 0 1 1 48 0zM352 344a24 24 0 1 1 0-48 24 24 0 1 1 0 48z" />
+                            </svg>
+                        </div>
+                        <span class="nav-link-text ms-1">POS</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{#isEqual subTitle 'Profile'}} active {{/isEqual}}" href="/account/profile">
+                        <div
+                            class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <img src="/uploads/accounts/{{avatar}}" class="avatar avatar-sm" alt="user image">
+                        </div>
+                        <span class="nav-link-text ms-1">Profile</span>
+                    </a>
+                </li>
+
+                <li class="nav-item mt-3">
+                    <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Product Management</h6>
+                </li>
+                <li class="nav-item">
+                    <a data-bs-toggle="collapse" href="#pagesCategory"
+                        class="nav-link {{#isEqual title 'Categories'}} active {{/isEqual}}"
+                        aria-controls="pagesCategory" role="button" aria-expanded="false">
+                        <div
+                            class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512">
+                                <path
+                                    d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z" />
+                            </svg>
+                        </div>
+                        <span class="nav-link-text ms-1">Categories</span>
+                    </a>
+                    <div class="collapse {{#isEqual title 'Categories'}} show {{/isEqual}}" id="pagesCategory">
+                        <ul class="nav ms-4 ps-3">
+                            <li class="nav-item ">
+                                <a class="nav-link {{#isEqual subTitle 'Category List'}} active {{/isEqual}}"
+                                    href="/category">
+                                    <span class="sidenav-mini-icon"> Ct </span>
+                                    <span class="sidenav-normal"> Category List </span>
+                                </a>
+                            </li>
+                            {{#if (eq user.role 'admin')}}
+                            <li class="nav-item ">
+                                <a class="nav-link {{#isEqual subTitle 'New Category'}} active {{/isEqual}}"
+                                    href="/category/handle?source=add">
+                                    <span class="sidenav-mini-icon"> + </span>
+                                    <span class="sidenav-normal"> New Category </span>
+                                </a>
+                            </li>
+                            {{/if}}
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a data-bs-toggle="collapse" href="#pagesProduct"
+                        class="nav-link {{#isEqual title 'Products'}} active {{/isEqual}}" aria-controls="pagesProduct"
+                        role="button" aria-expanded="false">
+                        <div
+                            class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512">
+                                <path
+                                    d="M16 64C16 28.7 44.7 0 80 0H304c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H80c-35.3 0-64-28.7-64-64V64zM224 448a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zM304 64H80V384H304V64z" />
+                            </svg>
+                        </div>
+                        <span class="nav-link-text ms-1">Products</span>
+                    </a>
+                    <div class="collapse {{#isEqual title 'Products'}} show {{/isEqual}}" id="pagesProduct">
+                        <ul class="nav ms-4 ps-3">
+                            <li class="nav-item {{#isEqual subTitle 'Product List'}} active {{/isEqual}}">
+                                <a class="nav-link " href="/product">
+                                    <span class="sidenav-mini-icon"> P </span>
+                                    <span class="sidenav-normal"> Product List </span>
+                                </a>
+                            </li>
+                            {{#if (eq user.role 'admin')}}
+                            <li class="nav-item ">
+                                <a class="nav-link {{#isEqual subTitle 'New Product'}} active {{/isEqual}}"
+                                    href="/product/handle?source=add">
+                                    <span class="sidenav-mini-icon"> + </span>
+                                    <span class="sidenav-normal"> New Product </span>
+                                </a>
+                            </li>
+                            {{/if}}
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a data-bs-toggle="collapse" href="#pagesPurchase"
+                        class="nav-link {{#isEqual title 'Purchases'}} active {{/isEqual}}"
+                        aria-controls="pagesPurchase" role="button" aria-expanded="false">
+                        <div
+                            class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 640 512">
+                                <path
+                                    d="M64 32C28.7 32 0 60.7 0 96V304v80 16c0 44.2 35.8 80 80 80c26.2 0 49.4-12.6 64-32c14.6 19.4 37.8 32 64 32c44.2 0 80-35.8 80-80c0-5.5-.6-10.8-1.6-16H416h33.6c-1 5.2-1.6 10.5-1.6 16c0 44.2 35.8 80 80 80s80-35.8 80-80c0-5.5-.6-10.8-1.6-16H608c17.7 0 32-14.3 32-32V288 272 261.7c0-9.2-3.2-18.2-9-25.3l-58.8-71.8c-10.6-13-26.5-20.5-43.3-20.5H480V96c0-35.3-28.7-64-64-64H64zM585 256H480V192h48.8c2.4 0 4.7 1.1 6.2 2.9L585 256zM528 368a32 32 0 1 1 0 64 32 32 0 1 1 0-64zM176 400a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zM80 368a32 32 0 1 1 0 64 32 32 0 1 1 0-64z" />
+                            </svg>
+                            <title>office</title>
+                        </div>
+                        <span class="nav-link-text ms-1">Purchases</span>
+                    </a>
+                    <div class="collapse {{#isEqual title 'Purchases'}} show {{/isEqual}}" id="pagesPurchase">
+                        <ul class="nav ms-4 ps-3">
+                            <li class="nav-item ">
+                                <a class="nav-link {{#isEqual subTitle 'Purchase List'}} active {{/isEqual}}"
+                                    href="/purchase">
+                                    <span class="sidenav-mini-icon"> P </span>
+                                    <span class="sidenav-normal"> Purchase List </span>
+                                </a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link {{#isEqual subTitle 'Go Purchase'}} active {{/isEqual}}"
+                                    href="/purchase/add">
+                                    <span class="sidenav-mini-icon"> + </span>
+                                    <span class="sidenav-normal"> Go Purchase </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="nav-item mt-3">
+                    <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">People Management</h6>
+                </li>
+                {{#if (eq user.role 'admin')}}
+                <li class="nav-item">
+                    <a data-bs-toggle="collapse" href="#pagesStaff"
+                        class="nav-link {{#isEqual title 'Accounts'}} active {{/isEqual}}" aria-controls="pagesStaff"
+                        role="button" aria-expanded="false">
+                        <div
+                            class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512">
+                                <path
+                                    d="M192 0c-41.8 0-77.4 26.7-90.5 64H64C28.7 64 0 92.7 0 128V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V128c0-35.3-28.7-64-64-64H282.5C269.4 26.7 233.8 0 192 0zm0 64a32 32 0 1 1 0 64 32 32 0 1 1 0-64zM128 256a64 64 0 1 1 128 0 64 64 0 1 1 -128 0zM80 432c0-44.2 35.8-80 80-80h64c44.2 0 80 35.8 80 80c0 8.8-7.2 16-16 16H96c-8.8 0-16-7.2-16-16z" />
+                            </svg>
+                        </div>
+                        <span class="nav-link-text ms-1">Staffs</span>
+                    </a>
+                    <div class="collapse {{#isEqual title 'Accounts'}} show {{/isEqual}}" id="pagesStaff">
+                        <ul class="nav ms-4 ps-3">
+                            <li class="nav-item ">
+                                <a class="nav-link {{#isEqual subTitle 'Account List'}} active {{/isEqual}}"
+                                    href="/account">
+                                    <span class="sidenav-mini-icon"> St </span>
+                                    <span class="sidenav-normal"> Account List </span>
+                                </a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link {{#isEqual subTitle 'New Account'}} active {{/isEqual}}"
+                                    href="/account/register">
+                                    <span class="sidenav-mini-icon"> + </span>
+                                    <span class="sidenav-normal"> New Account </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a data-bs-toggle="collapse" href="#pagesSupplier"
+                        class="nav-link {{#isEqual title 'Suppliers'}} active {{/isEqual}}"
+                        aria-controls="pagesSupplier" role="button" aria-expanded="false">
+                        <div
+                            class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 640 512">
+                                <path
+                                    d="M80 48a48 48 0 1 1 96 0A48 48 0 1 1 80 48zm64 193.7v65.1l51 51c7.1 7.1 11.8 16.2 13.4 26.1l15.2 90.9c2.9 17.4-8.9 33.9-26.3 36.8s-33.9-8.9-36.8-26.3l-14.3-85.9L66.8 320C54.8 308 48 291.7 48 274.7V186.6c0-32.4 26.2-58.6 58.6-58.6c24.1 0 46.5 12 59.9 32l47.4 71.1 10.1 5V160c0-17.7 14.3-32 32-32H384c17.7 0 32 14.3 32 32v76.2l10.1-5L473.5 160c13.3-20 35.8-32 59.9-32c32.4 0 58.6 26.2 58.6 58.6v88.1c0 17-6.7 33.3-18.7 45.3l-79.4 79.4-14.3 85.9c-2.9 17.4-19.4 29.2-36.8 26.3s-29.2-19.4-26.3-36.8l15.2-90.9c1.6-9.9 6.3-19 13.4-26.1l51-51V241.7l-19 28.5c-4.6 7-11 12.6-18.5 16.3l-59.6 29.8c-2.4 1.3-4.9 2.2-7.6 2.8c-2.6 .6-5.3 .9-7.9 .8H256.7c-2.5 .1-5-.2-7.5-.7c-2.9-.6-5.6-1.6-8.1-3l-59.5-29.8c-7.5-3.7-13.8-9.4-18.5-16.3l-19-28.5zM2.3 468.1L50.1 348.6l49.2 49.2-37.6 94c-6.6 16.4-25.2 24.4-41.6 17.8S-4.3 484.5 2.3 468.1zM512 0a48 48 0 1 1 0 96 48 48 0 1 1 0-96zm77.9 348.6l47.8 119.5c6.6 16.4-1.4 35-17.8 41.6s-35-1.4-41.6-17.8l-37.6-94 49.2-49.2z" />
+                            </svg>
+                        </div>
+                        <span class="nav-link-text ms-1">Suppliers</span>
+                    </a>
+                    <div class="collapse {{#isEqual title 'Suppliers'}} show {{/isEqual}}" id="pagesSupplier">
+                        <ul class="nav ms-4 ps-3">
+                            <li class="nav-item ">
+                                <a class="nav-link {{#isEqual subTitle 'Supplier List'}} active {{/isEqual}}"
+                                    href="/supplier">
+                                    <span class="sidenav-mini-icon"> S </span>
+                                    <span class="sidenav-normal"> Supplier List </span>
+                                </a>
+                            </li>
+                            <li class="nav-item {{#isEqual subTitle 'New Supplier'}} active {{/isEqual}}">
+                                <a class="nav-link " href="/supplier/add">
+                                    <span class="sidenav-mini-icon"> + </span>
+                                    <span class="sidenav-normal"> New Supplier </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                {{/if}}
+                <li class="nav-item">
+                    <a data-bs-toggle="collapse" href="#pagesCustomer"
+                        class="nav-link {{#isEqual title 'Customers'}} active {{/isEqual}}"
+                        aria-controls="pagesCustomer" role="button" aria-expanded="false">
+                        <div
+                            class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
+                                <path
+                                    d="M224 256A128 128 0 1 1 224 0a128 128 0 1 1 0 256zM209.1 359.2l-18.6-31c-6.4-10.7 1.3-24.2 13.7-24.2H224h19.7c12.4 0 20.1 13.6 13.7 24.2l-18.6 31 33.4 123.9 36-146.9c2-8.1 9.8-13.4 17.9-11.3c70.1 17.6 121.9 81 121.9 156.4c0 17-13.8 30.7-30.7 30.7H285.5c-2.1 0-4-.4-5.8-1.1l.3 1.1H168l.3-1.1c-1.8 .7-3.8 1.1-5.8 1.1H30.7C13.8 512 0 498.2 0 481.3c0-75.5 51.9-138.9 121.9-156.4c8.1-2 15.9 3.3 17.9 11.3l36 146.9 33.4-123.9z" />
+                            </svg>
+                        </div>
+                        <span class="nav-link-text ms-1">Customers</span>
+                    </a>
+                    <div class="collapse {{#isEqual title 'Customers'}} show {{/isEqual}}" id="pagesCustomer">
+                        <ul class="nav ms-4 ps-3">
+                            <li class="nav-item ">
+                                <a class="nav-link {{#isEqual subTitle 'Customer List'}} active {{/isEqual}}"
+                                    href="/customer">
+                                    <span class="sidenav-mini-icon"> C </span>
+                                    <span class="sidenav-normal"> Customer List </span>
+                                </a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link {{#isEqual subTitle 'New Customer'}} active {{/isEqual}}"
+                                    href="/customer/register">
+                                    <span class="sidenav-mini-icon"> + </span>
+                                    <span class="sidenav-normal"> New Customer </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="nav-item mt-3">
+                    <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Report Management</h6>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link  " href="/report/dailysale">
+                        <div
+                            class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512">
+                                <path
+                                    d="M0 96C0 60.7 28.7 32 64 32h96c123.7 0 224 100.3 224 224s-100.3 224-224 224H64c-35.3 0-64-28.7-64-64V96zm160 0H64V416h96c88.4 0 160-71.6 160-160s-71.6-160-160-160z" />
+                            </svg>
+                        </div>
+                        <span class="nav-link-text ms-1">Daily Sales</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link  " href="/report/monthlysale">
+                        <div
+                            class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
+                                <path
+                                    d="M22.7 33.4c13.5-4.1 28.1 1.1 35.9 12.9L224 294.3 389.4 46.2c7.8-11.7 22.4-17 35.9-12.9S448 49.9 448 64V448c0 17.7-14.3 32-32 32s-32-14.3-32-32V169.7L250.6 369.8c-5.9 8.9-15.9 14.2-26.6 14.2s-20.7-5.3-26.6-14.2L64 169.7V448c0 17.7-14.3 32-32 32s-32-14.3-32-32V64C0 49.9 9.2 37.5 22.7 33.4z" />
+                            </svg>
+                        </div>
+                        <span class="nav-link-text ms-1">Monthly Sales</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link  " href="/report/saleresult">
+                        <div
+                            class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
+                                <path
+                                    d="M152 24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H64C28.7 64 0 92.7 0 128v16 48V448c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V192 144 128c0-35.3-28.7-64-64-64H344V24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H152V24zM48 192h80v56H48V192zm0 104h80v64H48V296zm128 0h96v64H176V296zm144 0h80v64H320V296zm80-48H320V192h80v56zm0 160v40c0 8.8-7.2 16-16 16H320V408h80zm-128 0v56H176V408h96zm-144 0v56H64c-8.8 0-16-7.2-16-16V408h80zM272 248H176V192h96v56z" />
+                            </svg>
+                        </div>
+                        <span class="nav-link-text ms-1">Sales Results</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link  " href="/report/product">
+                        <div
+                            class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512">
+                                <path
+                                    d="M290.8 48.6l78.4 29.7L288 109.5 206.8 78.3l78.4-29.7c1.8-.7 3.8-.7 5.7 0zM136 92.5V204.7c-1.3 .4-2.6 .8-3.9 1.3l-96 36.4C14.4 250.6 0 271.5 0 294.7V413.9c0 22.2 13.1 42.3 33.5 51.3l96 42.2c14.4 6.3 30.7 6.3 45.1 0L288 457.5l113.5 49.9c14.4 6.3 30.7 6.3 45.1 0l96-42.2c20.3-8.9 33.5-29.1 33.5-51.3V294.7c0-23.3-14.4-44.1-36.1-52.4l-96-36.4c-1.3-.5-2.6-.9-3.9-1.3V92.5c0-23.3-14.4-44.1-36.1-52.4l-96-36.4c-12.8-4.8-26.9-4.8-39.7 0l-96 36.4C150.4 48.4 136 69.3 136 92.5zM392 210.6l-82.4 31.2V152.6L392 121v89.6zM154.8 250.9l78.4 29.7L152 311.7 70.8 280.6l78.4-29.7c1.8-.7 3.8-.7 5.7 0zm18.8 204.4V354.8L256 323.2v95.9l-82.4 36.2zM421.2 250.9c1.8-.7 3.8-.7 5.7 0l78.4 29.7L424 311.7l-81.2-31.1 78.4-29.7zM523.2 421.2l-77.6 34.1V354.8L528 323.2v90.7c0 3.2-1.9 6-4.8 7.3z" />
+                            </svg>
+                        </div>
+                        <span class="nav-link-text ms-1">Product Report</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link  " href="/report/purchase">
+                        <div
+                            class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
+                                <path
+                                    d="M448 416l0-64L64 352l0 64 384 0zm0 64L64 480c-35.3 0-64-28.7-64-64l0-64c0-35.3 28.7-64 64-64l384 0c35.3 0 64 28.7 64 64l0 64c0 35.3-28.7 64-64 64zM288 160c0 35.3-28.7 64-64 64L64 224c-35.3 0-64-28.7-64-64L0 96C0 60.7 28.7 32 64 32l144 0 16 0 144 0c44.2 0 80 35.8 80 80l0 16 38.1 0c21.4 0 32.1 25.9 17 41L433 239c-9.4 9.4-24.6 9.4-33.9 0L329 169c-15.1-15.1-4.4-41 17-41l38.1 0 0-16c0-8.8-7.2-16-16-16l-80 0 0 64z" />
+                            </svg>
+                        </div>
+                        <span class="nav-link-text ms-1">Purchase Report</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link  " href="/report/payment">
+                        <div
+                            class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
+                                <path
+                                    d="M320 96H192L144.6 24.9C137.5 14.2 145.1 0 157.9 0H354.1c12.8 0 20.4 14.2 13.3 24.9L320 96zM192 128H320c3.8 2.5 8.1 5.3 13 8.4C389.7 172.7 512 250.9 512 416c0 53-43 96-96 96H96c-53 0-96-43-96-96C0 250.9 122.3 172.7 179 136.4l0 0 0 0c4.8-3.1 9.2-5.9 13-8.4zm84 88c0-11-9-20-20-20s-20 9-20 20v14c-7.6 1.7-15.2 4.4-22.2 8.5c-13.9 8.3-25.9 22.8-25.8 43.9c.1 20.3 12 33.1 24.7 40.7c11 6.6 24.7 10.8 35.6 14l1.7 .5c12.6 3.8 21.8 6.8 28 10.7c5.1 3.2 5.8 5.4 5.9 8.2c.1 5-1.8 8-5.9 10.5c-5 3.1-12.9 5-21.4 4.7c-11.1-.4-21.5-3.9-35.1-8.5c-2.3-.8-4.7-1.6-7.2-2.4c-10.5-3.5-21.8 2.2-25.3 12.6s2.2 21.8 12.6 25.3c1.9 .6 4 1.3 6.1 2.1l0 0 0 0c8.3 2.9 17.9 6.2 28.2 8.4V424c0 11 9 20 20 20s20-9 20-20V410.2c8-1.7 16-4.5 23.2-9c14.3-8.9 25.1-24.1 24.8-45c-.3-20.3-11.7-33.4-24.6-41.6c-11.5-7.2-25.9-11.6-37.1-15l0 0-.7-.2c-12.8-3.9-21.9-6.7-28.3-10.5c-5.2-3.1-5.3-4.9-5.3-6.7c0-3.7 1.4-6.5 6.2-9.3c5.4-3.2 13.6-5.1 21.5-5c9.6 .1 20.2 2.2 31.2 5.2c10.7 2.8 21.6-3.5 24.5-14.2s-3.5-21.6-14.2-24.5c-6.5-1.7-13.7-3.4-21.1-4.7V216z" />
+                            </svg>
+                        </div>
+                        <span class="nav-link-text ms-1">Payment Report</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link  " href="/report/cashier">
+                        <div
+                            class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512">
+                                <path
+                                    d="M312 24V34.5c6.4 1.2 12.6 2.7 18.2 4.2c12.8 3.4 20.4 16.6 17 29.4s-16.6 20.4-29.4 17c-10.9-2.9-21.1-4.9-30.2-5c-7.3-.1-14.7 1.7-19.4 4.4c-2.1 1.3-3.1 2.4-3.5 3c-.3 .5-.7 1.2-.7 2.8c0 .3 0 .5 0 .6c.2 .2 .9 1.2 3.3 2.6c5.8 3.5 14.4 6.2 27.4 10.1l.9 .3c11.1 3.3 25.9 7.8 37.9 15.3c13.7 8.6 26.1 22.9 26.4 44.9c.3 22.5-11.4 38.9-26.7 48.5c-6.7 4.1-13.9 7-21.3 8.8V232c0 13.3-10.7 24-24 24s-24-10.7-24-24V220.6c-9.5-2.3-18.2-5.3-25.6-7.8c-2.1-.7-4.1-1.4-6-2c-12.6-4.2-19.4-17.8-15.2-30.4s17.8-19.4 30.4-15.2c2.6 .9 5 1.7 7.3 2.5c13.6 4.6 23.4 7.9 33.9 8.3c8 .3 15.1-1.6 19.2-4.1c1.9-1.2 2.8-2.2 3.2-2.9c.4-.6 .9-1.8 .8-4.1l0-.2c0-1 0-2.1-4-4.6c-5.7-3.6-14.3-6.4-27.1-10.3l-1.9-.6c-10.8-3.2-25-7.5-36.4-14.4c-13.5-8.1-26.5-22-26.6-44.1c-.1-22.9 12.9-38.6 27.7-47.4c6.4-3.8 13.3-6.4 20.2-8.2V24c0-13.3 10.7-24 24-24s24 10.7 24 24zM568.2 336.3c13.1 17.8 9.3 42.8-8.5 55.9L433.1 485.5c-23.4 17.2-51.6 26.5-80.7 26.5H192 32c-17.7 0-32-14.3-32-32V416c0-17.7 14.3-32 32-32H68.8l44.9-36c22.7-18.2 50.9-28 80-28H272h16 64c17.7 0 32 14.3 32 32s-14.3 32-32 32H288 272c-8.8 0-16 7.2-16 16s7.2 16 16 16H392.6l119.7-88.2c17.8-13.1 42.8-9.3 55.9 8.5zM193.6 384l0 0-.9 0c.3 0 .6 0 .9 0z" />
+                            </svg>
+                        </div>
+                        <span class="nav-link-text ms-1">Cashier Report</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </aside>
+
+    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+        <!-- Navbar -->
+        <nav class="navbar navbar-main navbar-expand-lg position-sticky mt-4 top-1 px-0 mx-4 border-radius-xl z-index-sticky shadow-none"
+            id="navbarBlur" data-scroll="true">
+            <div class="container-fluid py-1 px-3">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+                        <li class="breadcrumb-item text-sm">
+                            <a class="opacity-3 text-dark" href="javascript:;">
+                                <svg width="12px" height="12px" class="mb-1" viewBox="0 0 45 40" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <g transform="translate(-1716.000000, -439.000000)" fill="#252f40"
+                                            fill-rule="nonzero">
+                                            <g transform="translate(1716.000000, 291.000000)">
+                                                <g transform="translate(0.000000, 148.000000)">
+                                                    <path
+                                                        d="M46.7199583,10.7414583 L40.8449583,0.949791667 C40.4909749,0.360605034 39.8540131,0 39.1666667,0 L7.83333333,0 C7.1459869,0 6.50902508,0.360605034 6.15504167,0.949791667 L0.280041667,10.7414583 C0.0969176761,11.0460037 -1.23209662e-05,11.3946378 -1.23209662e-05,11.75 C-0.00758042603,16.0663731 3.48367543,19.5725301 7.80004167,19.5833333 L7.81570833,19.5833333 C9.75003686,19.5882688 11.6168794,18.8726691 13.0522917,17.5760417 C16.0171492,20.2556967 20.5292675,20.2556967 23.494125,17.5760417 C26.4604562,20.2616016 30.9794188,20.2616016 33.94575,17.5760417 C36.2421905,19.6477597 39.5441143,20.1708521 42.3684437,18.9103691 C45.1927731,17.649886 47.0084685,14.8428276 47.0000295,11.75 C47.0000295,11.3946378 46.9030823,11.0460037 46.7199583,10.7414583 Z">
+                                                    </path>
+                                                    <path
+                                                        d="M39.198,22.4912623 C37.3776246,22.4928106 35.5817531,22.0149171 33.951625,21.0951667 L33.92225,21.1107282 C31.1430221,22.6838032 27.9255001,22.9318916 24.9844167,21.7998837 C24.4750389,21.605469 23.9777983,21.3722567 23.4960833,21.1018359 L23.4745417,21.1129513 C20.6961809,22.6871153 17.4786145,22.9344611 14.5386667,21.7998837 C14.029926,21.6054643 13.533337,21.3722507 13.0522917,21.1018359 C11.4250962,22.0190609 9.63246555,22.4947009 7.81570833,22.4912623 C7.16510551,22.4842162 6.51607673,22.4173045 5.875,22.2911849 L5.875,44.7220845 C5.875,45.9498589 6.7517757,46.9451667 7.83333333,46.9451667 L19.5833333,46.9451667 L19.5833333,33.6066734 L27.4166667,33.6066734 L27.4166667,46.9451667 L39.1666667,46.9451667 C40.2482243,46.9451667 41.125,45.9498589 41.125,44.7220845 L41.125,22.2822926 C40.4887822,22.4116582 39.8442868,22.4815492 39.198,22.4912623 Z">
+                                                    </path>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a>
+                        </li>
+                        <li class="breadcrumb-item text-sm text-dark active" aria-current="page">{{title}}</li>
+                    </ol>
+                    <h6 class="font-weight-bolder mb-0">{{subTitle}}</h6>
+                </nav>
+                <div class="sidenav-toggler sidenav-toggler-inner d-xl-block d-none ">
+                    <a href="javascript:;" class="nav-link p-0 text-body">
+                        <div class="sidenav-toggler-inner">
+                            <i class="sidenav-toggler-line"></i>
+                            <i class="sidenav-toggler-line"></i>
+                            <i class="sidenav-toggler-line"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+                    {{#if hello}}
+                    <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+                        <div id="welcome-alert" class="alert alert-primary alert-dismissible text-light m-0">
+                            <span class="alert-icon"><i class="fas fa-hand-peace text-xs"></i>
+                                <i class="fas fa-smile-wink"></i></span>
+                            <span class="alert-text font-weight-normal">
+                                Welcome <strong>{{hello}}</strong>
+                            </span>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+                    {{/if}}
+                    <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+                        <div class="input-group">
+                            <span class="input-group-text text-body"><i class="fas fa-search"
+                                    aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" placeholder="Type here...">
+                        </div>
+                    </div>
+                    <ul class="navbar-nav  justify-content-end">
+                        <li class="nav-item d-flex align-items-center">
+                            <form action="/logout" method="post">
+                                <button class="nav-link font-weight-bold px-0 text-body"
+                                    style="border: 0px;background-color: transparent;" type="submit">
+                                    <i class="fa fa-sign-out me-sm-1" aria-hidden="true"></i>
+                                    <span class="d-sm-inline d-none">Log out</span>
+                                </button>
+                            </form>
+                        </li>
+                        <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+                            <a href="javascript:;" class="nav-link p-0 text-body" id="iconNavbarSidenav">
+                                <div class="sidenav-toggler-inner">
+                                    <i class="sidenav-toggler-line"></i>
+                                    <i class="sidenav-toggler-line"></i>
+                                    <i class="sidenav-toggler-line"></i>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item px-3 d-flex align-items-center">
+                            <a href="javascript:;" class="nav-link p-0 text-body">
+                                <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown pe-2 d-flex align-items-center">
+                            <a href="javascript:;" class="nav-link p-0 text-body" id="notify-dropdown"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa fa-bell cursor-pointer" aria-hidden="true"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end px-2 py-3 me-sm-n4"
+                                aria-labelledby="notify-dropdown">
+                                <li class="mb-2">
+                                    <a class="dropdown-item border-radius-md" href="javascript:;">
+                                        <div class="d-flex py-1">
+                                            <div class="my-auto">
+                                                <img src="/assets/img/team-2.jpg" class="avatar avatar-sm  me-3 "
+                                                    alt="user image">
+                                            </div>
+                                            <div class="d-flex flex-column justify-content-center">
+                                                <h6 class="text-sm font-weight-normal mb-1">
+                                                    <span class="font-weight-bold">New message</span> from Laur
+                                                </h6>
+                                                <p class="text-xs text-secondary mb-0">
+                                                    <i class="fa fa-clock me-1" aria-hidden="true"></i>
+                                                    13 minutes ago
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="mb-2">
+                                    <a class="dropdown-item border-radius-md" href="javascript:;">
+                                        <div class="d-flex py-1">
+                                            <div class="my-auto">
+                                                <img src="/assets/img/small-logos/logo-spotify.svg"
+                                                    class="avatar avatar-sm bg-gradient-dark  me-3 " alt="logo spotify">
+                                            </div>
+                                            <div class="d-flex flex-column justify-content-center">
+                                                <h6 class="text-sm font-weight-normal mb-1">
+                                                    <span class="font-weight-bold">New album</span> by Travis Scott
+                                                </h6>
+                                                <p class="text-xs text-secondary mb-0">
+                                                    <i class="fa fa-clock me-1" aria-hidden="true"></i>
+                                                    1 day
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item border-radius-md" href="javascript:;">
+                                        <div class="d-flex py-1">
+                                            <div class="avatar avatar-sm bg-gradient-secondary  me-3  my-auto">
+                                                <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                    <title>credit-card</title>
+                                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                        <g transform="translate(-2169.000000, -745.000000)"
+                                                            fill="#FFFFFF" fill-rule="nonzero">
+                                                            <g transform="translate(1716.000000, 291.000000)">
+                                                                <g transform="translate(453.000000, 454.000000)">
+                                                                    <path class="color-background"
+                                                                        d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z"
+                                                                        opacity="0.593633743"></path>
+                                                                    <path class="color-background"
+                                                                        d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z">
+                                                                    </path>
+                                                                </g>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </svg>
+                                            </div>
+                                            <div class="d-flex flex-column justify-content-center">
+                                                <h6 class="text-sm font-weight-normal mb-1">
+                                                    Payment successfully completed
+                                                </h6>
+                                                <p class="text-xs text-secondary mb-0">
+                                                    <i class="fa fa-clock me-1" aria-hidden="true"></i>
+                                                    2 days
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- End Navbar -->
+
+        <div class="container-fluid py-3">
+            {{{body}}}
+
+            <footer class="footer pt-3 ">
+                <div class="container-fluid">
+                    <div class="row align-items-center justify-content-lg-between">
+                        <div class="col-lg-6 mb-lg-0 mb-4">
+                            <div class="copyright text-center text-sm text-muted text-lg-start">
+                                ©
+                                <script>
+                                    document.write(new Date().getFullYear())
+                                </script>,
+                                made with <i class="fa fa-heart"></i> by
+                                <a href="" class="font-weight-bold" target="_blank">STARBOY</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <!-- Modal Loading -->
+        <div class="modal fade" id="loadingModal" tabindex="-1" role="dialog" aria-labelledby="success-modal"
+            aria-hidden="true" data-bs-backdrop="static">
+            <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="text-center">
+                            <div class="spinner-border text-default"
+                                style="margin-top: 1.5rem; --bs-spinner-width: 3rem; --bs-spinner-height: 3rem;"></div>
+                            <h3 class="font-weight-bolder opacity-9 mt-4">Loading...</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal Success -->
+        <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="success-modal"
+            aria-hidden="true">
+            <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="text-center">
+                            <div class="swal2-icon swal2-success swal2-icon-show" style="display: flex;">
+                                <div class="swal2-success-circular-line-left"
+                                    style="background-color: rgb(255, 255, 255);"></div>
+                                <span class="swal2-success-line-tip"></span> <span
+                                    class="swal2-success-line-long"></span>
+                                <div class="swal2-success-ring"></div>
+                                <div class="swal2-success-fix" style="background-color: rgb(255, 255, 255);"></div>
+                                <div class="swal2-success-circular-line-right"
+                                    style="background-color: rgb(255, 255, 255);"></div>
+                            </div>
+                            <h3 id="modal-success-title" class="font-weight-bolder opacity-9 mt-4"></h3>
+                            <p id="modal-success-msg"></p>
+                        </div>
+                        <div class="d-flex justify-content-center mt-4">
+                            <button id="btn-ok-reload" type="button" class="btn bg-gradient-info"
+                                onclick="window.location.reload();">OK</button>
+                            <button id="btn-ok-noreload" type="button" class="btn bg-gradient-info"
+                                data-bs-dismiss="modal">OK</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal Fail -->
+        <div class="modal fade" id="failModal" tabindex="-1" role="dialog" aria-labelledby="fail-modal"
+            aria-hidden="true">
+            <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="text-center">
+                            <div class="swal2-icon swal2-error swal2-icon-show" style="display: flex;"><span
+                                    class="swal2-x-mark">
+                                    <span class="swal2-x-mark-line-left"></span>
+                                    <span class="swal2-x-mark-line-right"></span>
+                                </span>
+                            </div>
+                            <h3 class="font-weight-bolder opacity-9 mt-4">Failed!</h3>
+                            <p id="message-modal-fail"></p>
+                        </div>
+                        <div class="d-flex justify-content-center mt-4">
+                            <button type="button" class="btn bg-gradient-info" data-bs-dismiss="modal">OK</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="fixed-plugin ps ">
+        <div class="card shadow-lg blur">
+            <div class="card-header pb-0 pt-3  bg-transparent ">
+                <div class="float-start">
+                    <h5 class="mt-3 mb-0">Soft UI Configurator</h5>
+                </div>
+                <div class="float-end mt-4">
+                    <button class="btn btn-link text-dark p-0 fixed-plugin-close-button">
+                        <i class="fa fa-close" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+            <hr class="horizontal dark my-1">
+            <div class="card-body pt-sm-3 pt-0">
+                <p class="text-sm d-xl-none d-block mt-2">You can change the sidenav type just
+                    on desktop view.</p>
+                <div>
+                    <h6 class="mb-0">Navbar Fixed</h6>
+                </div>
+                <div class="form-check form-switch ps-0">
+                    <input class="form-check-input mt-1 ms-auto custom-cursor-on-hover" type="checkbox" id="navbarFixed"
+                        onclick="navbarFixed(this)" checked="true">
+                </div>
+                <hr class="horizontal dark mb-1 d-xl-block d-none">
+                <div class="mt-2 d-xl-block d-none">
+                    <h6 class="mb-0">Sidenav Mini</h6>
+                </div>
+                <div class="form-check form-switch ps-0 d-xl-block d-none">
+                    <input class="form-check-input mt-1 ms-auto" type="checkbox" id="navbarMinimize"
+                        onclick="navbarMinimize(this)">
+                </div>
+                <hr class="horizontal dark mb-1 d-xl-block d-none">
+                <div class="mt-2 d-xl-block d-none">
+                    <h6 class="mb-0">Light/Dark</h6>
+                </div>
+                <div class="form-check form-switch ps-0 d-xl-block d-none">
+                    <input class="form-check-input mt-1 ms-auto" type="checkbox" id="dark-version">
+                </div>
+                <hr class="horizontal dark my-sm-4">
+                <form action="/logout" method="post">
+                    <button type="subit" class="btn btn-outline-dark w-100">Log out </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!--   Core JS Files   -->
+    <script src="/assets/js/core/popper.min.js"></script>
+    <script src="/assets/js/core/bootstrap.min.js"></script>
+    <script src="/assets/js/plugins/perfect-scrollbar.min.js"></script>
+    <script src="/assets/js/plugins/smooth-scrollbar.min.js"></script>
+    <!-- page script -->
+    <script>
+        var win = navigator.platform.indexOf('Win') > -1;
+        if (win && document.querySelector('#sidenav-scrollbar')) {
+            var options = {
+                damping: '0.5'
+            }
+            Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+        }
+    </script>
+
+    <!-- Jquery -->
+    <script src="/assets/plugins/jquery/jquery.min.js"></script>
+
+    <!-- DataTables -->
+    <script src="/assets/plugins/datatables/jquery.dataTables.js"></script>
+    <script src="/assets/plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
+
+    {{#if script}}
+    <script src="/javascripts/{{script}}.js"></script>
+    {{/if}}
+    
+    <!-- Toggle Light/Dark -->
+    <script>
+        $(document).ready(function () {
+            if (localStorage.getItem('darkMode') === null) {
+                localStorage.setItem('darkMode', 'false');
+            }
+            darkMode();
+            $("#dark-version").on("change", function () {
+                if (this.checked) {
+                    localStorage.setItem('darkMode', 'true');
+                } else {
+                    localStorage.setItem('darkMode', 'false');
+                }
+                darkMode();
+            });
+        });
+
+        function darkMode() {
+            var t, a = document.getElementsByTagName("body")[0], n = document.querySelectorAll("div:not(.sidenav) > hr"), i = document.querySelector(".sidenav"), l = document.querySelectorAll(".sidenav.bg-white"), s = document.querySelectorAll("div:not(.bg-gradient-dark) hr"), r = document.querySelectorAll("button:not(.btn) > .text-dark"), o = document.querySelectorAll("span.text-dark, .breadcrumb .text-dark"), c = document.querySelectorAll("span.text-white, .breadcrumb .text-white"), d = document.querySelectorAll("strong.text-dark"), u = document.querySelectorAll("strong.text-white"), g = document.querySelectorAll("a.nav-link.text-dark"), m = document.querySelectorAll(".text-secondary"), v = document.querySelectorAll(".text-white"), f = document.querySelectorAll(".bg-gray-100"), h = document.querySelectorAll(".bg-gray-600"), b = document.querySelectorAll(".btn.btn-link.text-dark, .btn .ni.text-dark"), y = document.querySelectorAll(".btn.btn-link.text-white, .btn .ni.text-white"), p = document.querySelectorAll(".card.border"), x = document.querySelectorAll(".card.border.border-dark"), w = document.querySelectorAll(".navbar g"), L = document.querySelector(".navbar-brand-img"), S = L.src, k = document.querySelectorAll(".navbar-main .nav-link"), q = document.querySelectorAll(".card .nav .nav-link i"), A = document.querySelectorAll(".card .nav .nav-link span"), C = document.querySelectorAll(".fixed-plugin > .card"), B = document.querySelectorAll(".main-content .container-fluid .card");
+            if (localStorage.getItem('darkMode') === 'false') {
+                $("#dark-version").prop('checked', false);
+                a.classList.remove("dark-version"), i.classList.add("bg-white"), S.includes("logo-ct.png") && (t = S.replace("logo-ct", "logo-ct-dark"), L.src = t); for (E = 0; E < k.length; E++)k[E].classList.contains("text-dark") && (k[E].classList.add("text-white"), k[E].classList.remove("text-dark")); for (E = 0; E < q.length; E++)q[E].classList.contains("text-white") && (q[E].classList.remove("text-white"), q[E].classList.add("text-dark")); for (E = 0; E < A.length; E++)A[E].classList.contains("text-white") && A[E].classList.remove("text-white"); for (E = 0; E < B.length; E++)B[E].classList.add("blur", "shadow-blur"); for (E = 0; E < C.length; E++)C[E].classList.add("blur"); for (E = 0; E < n.length; E++)n[E].classList.contains("light") && (n[E].classList.add("dark"), n[E].classList.remove("light")); for (E = 0; E < s.length; E++)s[E].classList.contains("light") && (s[E].classList.add("dark"), s[E].classList.remove("light")); for (E = 0; E < r.length; E++)r[E].classList.contains("text-white") && (r[E].classList.remove("text-white"), r[E].classList.add("text-dark")); for (E = 0; E < c.length; E++)!c[E].classList.contains("text-white") || c[E].closest(".sidenav") || c[E].closest(".card.bg-gradient-dark") || (c[E].classList.remove("text-white"), c[E].classList.add("text-dark")); for (E = 0; E < u.length; E++)u[E].classList.contains("text-white") && (u[E].classList.remove("text-white"), u[E].classList.add("text-dark")); for (E = 0; E < v.length; E++)v[E].classList.contains("text-white") && (v[E].classList.remove("text-white"), v[E].classList.remove("opacity-8"), v[E].classList.add("text-secondary")); for (E = 0; E < h.length; E++)h[E].classList.contains("bg-gray-600") && (h[E].classList.remove("bg-gray-600"), h[E].classList.add("bg-gray-100")); for (E = 0; E < w.length; E++)w[E].hasAttribute("fill") && w[E].setAttribute("fill", "#6c757d"); for (E = 0; E < y.length; E++)y[E].closest(".card.bg-gradient-dark") || (y[E].classList.remove("text-white"), y[E].classList.add("text-dark")); for (E = 0; E < x.length; E++)x[E].classList.remove("border-dark");
+            } else {
+                $("#dark-version").prop('checked', true);
+                a.classList.add("dark-version"), S.includes("logo-ct-dark.png") && (t = S.replace("logo-ct-dark", "logo-ct"), L.src = t); for (var E = 0; E < B.length; E++)B[E].classList.contains("blur") && B[E].classList.remove("blur", "shadow-blur"); for (var E = 0; E < k.length; E++)k[E].classList.contains("text-white") && k[E].classList.remove("text-white"); for (var E = 0; E < C.length; E++)C[E].classList.contains("blur") && C[E].classList.remove("blur"); for (var E = 0; E < q.length; E++)q[E].classList.contains("text-dark") && (q[E].classList.remove("text-dark"), q[E].classList.add("text-white")); for (var E = 0; E < A.length; E++)A[E].classList.contains("text-sm") && A[E].classList.add("text-white"); for (var E = 0; E < n.length; E++)n[E].classList.contains("dark") && (n[E].classList.remove("dark"), n[E].classList.add("light")); for (var E = 0; E < s.length; E++)s[E].classList.contains("dark") && (s[E].classList.remove("dark"), s[E].classList.add("light")); for (var E = 0; E < r.length; E++)r[E].classList.contains("text-dark") && (r[E].classList.remove("text-dark"), r[E].classList.add("text-white")); for (var E = 0; E < o.length; E++)o[E].classList.contains("text-dark") && (o[E].classList.remove("text-dark"), o[E].classList.add("text-white")); for (var E = 0; E < d.length; E++)d[E].classList.contains("text-dark") && (d[E].classList.remove("text-dark"), d[E].classList.add("text-white")); for (var E = 0; E < g.length; E++)g[E].classList.contains("text-dark") && (g[E].classList.remove("text-dark"), g[E].classList.add("text-white")); for (var E = 0; E < m.length; E++)m[E].classList.contains("text-secondary") && (m[E].classList.remove("text-secondary"), m[E].classList.add("text-white"), m[E].classList.add("opacity-8")); for (var E = 0; E < f.length; E++)f[E].classList.contains("bg-gray-100") && (f[E].classList.remove("bg-gray-100"), f[E].classList.add("bg-gray-600")); for (var E = 0; E < b.length; E++)b[E].classList.remove("text-dark"), b[E].classList.add("text-white"); for (var E = 0; E < l.length; E++)l[E].classList.remove("bg-white"); for (var E = 0; E < w.length; E++)w[E].hasAttribute("fill") && w[E].setAttribute("fill", "#fff"); for (E = 0; E < p.length; E++)p[E].classList.add("border-dark");
+            }
+        }
+    </script>
+    <!-- Github buttons -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+    <script src="/assets/js/soft-ui-dashboard.min.js?v=1.1.1"></script>
+</body>
+
+</html>

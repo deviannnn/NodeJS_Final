@@ -1,0 +1,381 @@
+<div class="row">
+    <div class="col-lg-6">
+        <h4>About Product</h4>
+        <p>Mandatory informations</p>
+    </div>
+    <div class="col-lg-6 text-right d-flex flex-column justify-content-center">
+        {{#if (eq source 'add')}}
+        <button class="btn bg-gradient-dark ms-auto mb-0" type="button" onclick="nextCreateProduct()">Next</button>
+        <div class="modal fade" id="next-Modal" tabindex="-1" role="dialog" aria-labelledby="modal-default"
+            aria-hidden="true">
+            <div class="modal-dialog modal- modal-dialog-centered modal-" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h6 class="modal-title" id="modal-title-default"><b>Verify Product Creation</b>
+                        </h6>
+                        <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>After you verify this message, the system will create a new product.
+                            You can then add or edit the variants of this one.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn bg-gradient-success" data-bs-dismiss="modal"
+                            onclick="createProduct()">Confirm</button>
+                        <button type="button" class="btn bg-gradient-secondary ml-auto"
+                            data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/if}}
+    </div>
+</div>
+<div class="row mt-4">
+    <div class="col-12 mt-lg-0 mt-4">
+        <div class="card">
+            <div class="card-header pb-0 px-3">
+                <div class="row">
+                    <div class="col-6">
+                        <h5 class="font-weight-bolder mb-0">Product Information</h5>
+                    </div>
+                    {{#if (eq source 'edit')}}
+                    <div class="col-6 ms-auto my-auto mt-lg-0 mt-4 text-end">
+                        <a class="btn bg-gradient-dark btn-sm mb-0" onclick="updateProduct()">Update Info</a>
+                    </div>
+                    {{/if}}
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <label for="name">Name</label>
+                        <input class="form-control" type="text" id="name"
+                            placeholder="eg. iPhone 15, iPhone 15 Plus, iPhone 15 Pro,...">
+                    </div>
+                    <div class="col-lg-6 mt-lg-0 mt-4">
+                        <label for="category">Category</label>
+                        <div class="choices" data-type="select-one">
+                            <select id="category" class="form-control"></select>
+                        </div>
+                    </div>
+                </div>
+                <div id="specs-list" class="row"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{#if (eq source 'edit')}}
+<div class="row mt-4">
+    <div class="col-12 mt-lg-0 mt-4">
+        <div class="card">
+            <div class="card-header pb-0 px-3">
+                <div class="row">
+                    <div class="col-6">
+                        <h5 class="font-weight-bolder mb-0">Product Variations</h5>
+                    </div>
+                    <div class="col-6 ms-auto my-auto mt-lg-0 mt-4 text-end">
+                        <a href="" class="btn bg-gradient-warning btn-sm mb-0" data-bs-toggle="modal"
+                            onclick="displayVarAdd()">+&nbsp;Variant</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body pt-4 p-3">
+                <ul id="variants-list" class="list-group"></ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal (Add, Edit) -->
+<div class="modal fade" id="varModal" tabindex="-1" role="dialog" style="--bs-modal-width: 900px;">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 id="varTittle" class="modal-title text-bolder">New Variant</h5>
+                <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body mt-3 mb-1">
+                <div class="row">
+                    <div class="col-lg-4 text-center">
+                        <h6>Variant Image</h6>
+                        <img id="preview" class="w-80" alt="product_image" src="/uploads/product_variants/default.png"
+                            style="height: 170px;">
+                        <input class="form-control" type="file" id="img" accept=".png, .jpg" hidden>
+                        <div class="d-flex ms-4 mt-4">
+                            <button class="btn bg-gradient-primary btn-sm mb-0 me-2" type="button"
+                                onclick="chooseImg()">Edit</button>
+                            <button id="removeImg" class="btn btn-outline-dark btn-sm mb-0"
+                                type="button">Remove</button>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 mt-lg-0 mt-4">
+                        <h6 class="text-center">Variant Information</h6>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="d-flex">
+                                    <label class="align-self-center me-3" for="barcode">Barcode</label>
+                                    <div class="form-check me-3">
+                                        <input class="form-check-input" type="radio" name="typeBarcode" id="auto"
+                                            checked>
+                                        <label class="ms-0" for="auto">auto</label>
+                                    </div>
+                                    <div class="form-check me-3">
+                                        <input class="form-check-input" type="radio" name="typeBarcode" id="custom">
+                                        <label class="ms-0" for="custom">custom</label>
+                                    </div>
+                                </div>
+                                <input class="form-control" type="text" id="barcode" maxlength="20" disabled>
+                            </div>
+                            <div class="col-lg-6 mt-lg-0 mt-2">
+                                <label for="color">Color</label>
+                                <input class="form-control" type="text" id="color" placeholder="eg. Black, White,..."
+                                    maxlength="15">
+                            </div>
+                            <div class="col-lg-6 mt-2">
+                                <label for="quantity">Quantity</label>
+                                <input class="form-control" type="text" id="quantity" placeholder="Default 0"
+                                    maxlength="15">
+                            </div>
+                            <div class="col-lg-6 mt-2">
+                                <label for="warn">Warning quantity</label>
+                                <input class="form-control" type="text" id="warn" placeholder="eg. 3, 4, 5,..."
+                                    maxlength="2">
+                            </div>
+                            <div class="col-lg-6 mt-2">
+                                <label for="cost">Cost</label>
+                                <div class="d-flex">
+                                    <span class="input-group-text"
+                                        style="border-top-right-radius: 0; border-bottom-right-radius: 0">VND</span>
+                                    <input class="form-control" type="text" id="cost" placeholder="eg. 10 ≡ 10000 VND"
+                                        style="border-radius: 0; border-right: 0; border-left: 0; z-index: 1; text-align: end">
+                                    <span class="input-group-text"
+                                        style="border-top-left-radius: 0; border-bottom-left-radius: 0">000</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 mt-2">
+                                <label for="price">Price</label>
+                                <div class="d-flex">
+                                    <span class="input-group-text"
+                                        style="border-top-right-radius: 0; border-bottom-right-radius: 0">VND</span>
+                                    <input class="form-control" type="text" id="price" placeholder="eg. 10 ≡ 10000 VND"
+                                        style="border-radius: 0; border-right: 0; border-left: 0; z-index: 1; text-align: end">
+                                    <span class="input-group-text"
+                                        style="border-top-left-radius: 0; border-bottom-left-radius: 0">000</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Close</button>
+                <button id="addBtn" type="button" class="btn bg-gradient-dark" onclick="addVariant()">Next</button>
+                <button id="editBtn" type="button" class="btn bg-gradient-dark" onclick="editVariant()"
+                    style="display: none">Update</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Detail -->
+<div class="modal fade" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="detail-modal" aria-hidden="true"
+    style="--bs-modal-width: 900px;">
+    <div class="modal-dialog modal- modal-dialog-centered modal-" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-bolder">Variant Detail</h5>
+                <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-3 text-center">
+                        <h6>Variant Image</h6>
+                        <img id="detail-img-variant" class="w-lg-70 w-30" src="/uploads/product_variants/default.png">
+                    </div>
+                    <div class="col-lg-9 mt-lg-0 mt-4">
+                        <h6 class="text-center">Variant Information</h6>
+                        <div class="row">
+                            <div class="col-12 d-flex">
+                                <h6 class="col-2-5">Barcode:</h6>
+                                <span id="detail-barcode-variant"></span>
+                            </div>
+                            <div class="col-12 d-flex">
+                                <h6 class="col-2-5">Color:</h6>
+                                <span id="detail-color-variant"></span>
+                            </div>
+                            <div class="col-12 d-flex">
+                                <h6 class="col-2-5">Cost:</h6>
+                                <span id="detail-cost-variant"></span>
+                            </div>
+                            <div class="col-12 d-flex">
+                                <h6 class="col-2-5">Price:</h6>
+                                <span id="detail-price-variant"></span>
+                            </div>
+                            <div class="col-12 d-flex">
+                                <h6 class="col-2-5">Quantity:</h6>
+                                <span id="detail-quantity-variant"></span>
+                            </div>
+                            <div class="col-12 d-flex">
+                                <h6 class="col-2-5">Warn:</h6>
+                                <span id="detail-warn-variant"></span>
+                            </div>
+                            <div class="col-12 d-flex">
+                                <h6 class="col-2-5 m-0">Status:</h6>
+                                <span id="detail-status-variant"></span>
+                            </div>
+                            <div class="col-12 mt-2 d-flex">
+                                <h6 class="col-2-5">Created Date:</h6>
+                                <span id="detail-created-variant"></span>
+                            </div>
+                            <div class="col-12 d-flex">
+                                <h6 class="col-2-5">Latest Updates:</h6>
+                                <span id="detail-updated-variant"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn bg-gradient-secondary ml-auto" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Timeline -->
+<div class="modal fade" id="timelineModal" tabindex="-1" role="dialog" aria-labelledby="timeline-modal"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-bolder">Variant Timeline <span class="current-var"></span></h5>
+                <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body p-0">
+                <div class="card">
+                    <div class="card-body p-3">
+                        <div class="timeline timeline-one-side" data-timeline-axis-style="dotted">
+                            <div class="timeline-block mb-3">
+                                <span class="timeline-step">
+                                    <i class="ni ni-cart text-success text-gradient"></i>
+                                </span>
+                                <div class="timeline-content">
+                                    <h6 class="text-dark text-sm font-weight-bold mb-0">Sold: -2</h6>
+                                    <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">21 DEC 9:34 PM
+                                    </p>
+                                    <p class="text-sm mt-3 mb-2">
+                                        By Staff_1 to WG Customer
+                                    </p>
+                                    <span class="badge badge-sm bg-gradient-success">Server</span>
+                                    <span class="badge badge-sm bg-gradient-success">Payments</span>
+                                </div>
+                            </div>
+                            <div class="timeline-block mb-3">
+                                <span class="timeline-step">
+                                    <i class="fas fa-pencil-alt text-dark text-gradient"></i>
+                                </span>
+                                <div class="timeline-content">
+                                    <h6 class="text-dark text-sm font-weight-bold mb-0">Edited: +2</h6>
+                                    <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">21 DEC 9:34 PM
+                                    </p>
+                                    <p class="text-sm mt-3 mb-2">
+                                        By Admin_1
+                                    </p>
+                                    <span class="badge badge-sm bg-gradient-dark">Server</span>
+                                    <span class="badge badge-sm bg-gradient-dark">Payments</span>
+                                </div>
+                            </div>
+                            <div class="timeline-block">
+                                <span class="timeline-step">
+                                    <i class="ni ni-box-2 text-warning text-gradient"></i>
+                                </span>
+                                <div class="timeline-content">
+                                    <h6 class="text-dark text-sm font-weight-bold mb-0">Imported: +20</h6>
+                                    <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">14 DEC</p>
+                                    <p class="text-sm mt-3 mb-2">
+                                        By Admin_1 with Supplier_2
+                                    </p>
+                                    <span class="badge badge-sm bg-gradient-warning">Request</span>
+                                    <span class="badge badge-sm bg-gradient-warning">Priority</span>
+                                </div>
+                            </div>
+                            <div class="alert alert-light m-0" role="alert">
+                                <strong>Ooops!</strong> There is no timeline for this variant yet!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Toggle Active -->
+<div class="modal fade" id="toggleActiveModal" tabindex="-1" role="dialog" aria-labelledby="active-modal"
+    aria-hidden="true">
+    <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
+        <div class="modal-content">
+            <div class="modal-body p-4">
+                <div class="text-center">
+                    <div id="unactive-status">
+                        <div class="swal2-icon swal2-danger swal2-icon-show" style="display: flex; margin-top: 15px;">
+                            <div class="swal2-icon-content"><i class="fas fa-lock"></i></div>
+                        </div>
+                        <p>You will stop activities related to this variant 
+                            <span class="current-var text-bolder"></span>!
+                        </p>
+                    </div>
+                    <div id="active-status">
+                        <div class="swal2-icon swal2-success swal2-icon-show" style="display: flex; margin-top: 15px;">
+                            <div class="swal2-icon-content"><i class="fas fa-unlock"></i></div>
+                        </div>
+                        <p>You will enable activities related to this variant 
+                            <span class="current-var text-bolder"></span>!
+                        </p>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center mt-4">
+                    <input type="text" id="actived-var-barcode" hidden>
+                    <input type="text" id="activedValue" hidden>
+                    <button type="button" class="btn btn bg-gradient-success mx-2" data-bs-dismiss="modal"
+                        onclick="changeVarActived()">Yes!</button>
+                    <button type="button" class="btn bg-gradient-danger mx-1" data-bs-dismiss="modal">No,
+                        Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Delete -->
+<div class="modal fade" id="deleteVarModal" tabindex="-1" role="dialog" aria-labelledby="delete-modal"
+    aria-hidden="true">
+    <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
+        <div class="modal-content">
+            <div class="modal-body p-4">
+                <div class="text-center">
+                    <div class="swal2-icon swal2-warning swal2-icon-show" style="display: flex; margin-top: 15px;">
+                        <div class="swal2-icon-content">!</div>
+                    </div>
+                    <h3 class="font-weight-bolder opacity-9 mt-4">Are you sure?</h3>
+                    <p>You won't be able to revert this variant <span class="current-var text-bolder"></span>!
+                    </p>
+                </div>
+                <div class="d-flex justify-content-center mt-4">
+                    <input type="text" id="delete-var-barcode" hidden>
+                    <button type="button" class="btn btn bg-gradient-success mx-2" data-bs-dismiss="modal"
+                        onclick="confirmDel()">Yes, Delete it!</button>
+                    <button type="button" class="btn bg-gradient-danger mx-1" data-bs-dismiss="modal">No,
+                        Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{/if}}

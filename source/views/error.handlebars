@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="/assets/img/favicon.png">
+    <title>S T A R B O Y</title>
+
+    <link rel="canonical" href="https://www.creative-tim.com/product/soft-ui-dashboard-pro" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+
+    <link href="/assets/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="/assets/css/nucleo-svg.css" rel="stylesheet" />
+
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <link href="/assets/css/nucleo-svg.css" rel="stylesheet" />
+
+    <link id="pagestyle" href="/assets/css/soft-ui-dashboard.min.css?v=1.1.1" rel="stylesheet" />
+</head>
+
+<body class="error-page">
+    <main class="main-content mt-0 ps">
+        <section class="my-6">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 my-auto">
+                        <h1 class="display-1 text-bolder text-gradient text-danger">{{error.status}}</h1>
+                        <h2>{{error.title}}</h2>
+                        <p class="lead">{{error.message}}</p>
+                        {{#if (eq error.status 401)}}
+                        <button type="button" class="btn bg-gradient-dark mt-4" onclick="window.location.href='/login'">
+                            Login</button>
+                        {{else}}
+                        <button type="button" class="btn bg-gradient-dark mt-4" onclick="window.location.href='/'">
+                            Go Back</button>
+                        {{/if}}
+                    </div>
+                    <div class="col-lg-6 my-auto position-relative">
+                        <img class="w-100 position-relative" src="/assets/img/illustrations/error-404.png"
+                            alt="404-error">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <script src="/assets/js/core/popper.min.js"></script>
+    <script src="/assets/js/core/bootstrap.min.js"></script>
+    <script src="/assets/js/plugins/perfect-scrollbar.min.js"></script>
+    <script src="/assets/js/plugins/smooth-scrollbar.min.js"></script>
+
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    <script src="/assets/js/soft-ui-dashboard.min.js?v=1.1.1"></script>
+</body>
+
+</html>

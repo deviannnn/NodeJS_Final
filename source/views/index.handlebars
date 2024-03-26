@@ -1,0 +1,158 @@
+<div class="row">
+    <div class="col-lg-6 col-12 d-flex ms-auto">
+        <span id="custom-date" class="ms-auto mb-3" style="display: none">
+            <div class="d-flex align-items-center">
+                <span class="h6">From</span>
+                <input class="form-control ms-2" type="date" value="2023-12-23" id="startDate">
+            </div>
+            <div class="d-flex align-items-center">
+                <span class="h6">To</span>&nbsp;&emsp;
+                <input class="form-control ms-2" type="date" value="2023-12-23" id="endDate">
+            </div>
+        </span>
+        <div class="dropleft ms-auto">
+            <button class="btn bg-gradient-dark dropdown-toggle" type="button" id="timeframe" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Today
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="timeframe">
+                <li><a class="dropdown-item" data-value="today">Today</a></li>
+                <li><a class="dropdown-item" data-value="yesterday">Yesterday</a></li>
+                <li><a class="dropdown-item" data-value="last7days">Last 7 days</a></li>
+                <li><a class="dropdown-item" data-value="thisweek">This week</a></li>
+                <li><a class="dropdown-item" data-value="previousweek">Previous week</a></li>
+                <li><a class="dropdown-item" data-value="thismonth">This month</a></li>
+                <li><a class="dropdown-item" data-value="previousmonth">Previous month</a></li>
+                <li><a class="dropdown-item" data-value="custom">Select date</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-4 pe-lg-0">
+        <div class="card">
+            <div class="card-body p-3 position-relative">
+                <div class="row">
+                    <div class="col-7 text-start">
+                        <p class="text-sm mb-1 text-capitalize font-weight-bold">Sales</p>
+                        <h5 id="totalSales" class="font-weight-bolder mb-0"></h5>
+                    </div>
+                    <div class="col-5">
+                        <div class="dropdown text-end">
+                            <a class="cursor-pointer text-secondary">
+                                <span class="text-xs text-secondary frametime-date">6 May - 7 May</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <span class="text-sm font-weight-bolder mt-auto mb-0">
+                    <span id="percentSales"></span>
+                    <span class="font-weight-normal text-secondary frametime-text">since last month</span>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 mt-lg-0 mt-4">
+        <div class="card">
+            <div class="card-body p-3 position-relative">
+                <div class="row">
+                    <div class="col-6 text-start">
+                        <p class="text-sm mb-1 text-capitalize font-weight-bold">Orders</p>
+                        <h5 id="totalOrders" class="font-weight-bolder mb-0"></h5>
+                    </div>
+                    <div class="col-6">
+                        <div class="dropdown text-end">
+                            <a class="cursor-pointer text-secondary">
+                                <span class="text-xs text-secondary frametime-date">6 May - 7 May</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <span class="text-sm text-success font-weight-bolder mt-auto mb-0">
+                    <span id="percentOrders"></span>
+                    <span class="font-weight-normal text-secondary frametime-text">since last month</span>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 mt-lg-0 mt-4 ps-lg-0">
+        <div class="card">
+            <div class="card-body p-3 position-relative">
+                <div class="row">
+                    <div class="col-7 text-start">
+                        <p class="text-sm mb-1 text-capitalize font-weight-bold">Revenue</p>
+                        <h5 id="revenue" class="font-weight-bolder mb-0"></h5>
+                    </div>
+                    <div class="col-5">
+                        <div class="dropdown text-end">
+                            <a class="cursor-pointer text-secondary">
+                                <span class="text-xs text-secondary frametime-date">6 May - 7 May</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <span class="font-weight-normal text-secondary text-sm">
+                    <span id="diffRevenue" class="font-weight-bolder"></span>
+                    <span class="font-weight-normal text-secondary frametime-text">since last month</span>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row mt-4">
+    <div class="col-lg-6">
+        <div class="card h-100">
+            <div class="card-header pb-0 p-3">
+                <div class="d-flex align-items-center">
+                    <h6 class="mb-0">Products</h6>
+                    <button type="button"
+                        class="btn btn-icon-only btn-rounded btn-outline-secondary mb-0 ms-2 btn-sm d-flex align-items-center justify-content-center ms-auto"
+                        data-bs-toggle="tooltip" data-bs-placement="bottom"
+                        aria-label="See how much percentage did products contribute"
+                        data-bs-original-title="See how much percentage did products contribute">
+                        <i class="fas fa-info" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body p-3">
+                <ul id="top-products" class="list-group"></ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="card h-100 mt-4 mt-lg-0">
+            <div class="card-header pb-0 p-3">
+                <div class="d-flex align-items-center">
+                    <h6>Orders</h6>
+                    <button type="button"
+                        class="btn btn-icon-only btn-rounded btn-outline-success mb-0 ms-2 btn-sm d-flex align-items-center justify-content-center ms-auto"
+                        data-bs-toggle="tooltip" data-bs-placement="bottom"
+                        aria-label="Data is based from sessions and is 100% accurate"
+                        data-bs-original-title="Data is based from sessions and is 100% accurate">
+                        <i class="fas fa-check" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body px-3 pt-0 pb-2">
+                <div class="table-responsive p-0">
+                    <div class="alert alert-light m-0 mt-2" role="alert" display="none">
+                        <strong>Ooops!</strong> No data.
+                    </div>
+                    <table class="table align-items-center justify-content-center mb-0">
+                        <thead>
+                            <tr>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                    Id</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                    Sales</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                    Time</th>
+                            </tr>
+                        </thead>
+                        <tbody id="top-orders"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

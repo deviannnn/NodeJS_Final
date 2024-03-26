@@ -1,0 +1,145 @@
+<div class="row">
+    <div class="col-12 mt-2">
+        <form class="multisteps-form__form" style="height: 408px;">
+            <div class="card multisteps-form__panel p-3 border-radius-xl bg-white js-active" data-animation="FadeIn">
+                <h5 class="font-weight-bolder mb-0">About Staff</h5>
+                <p class="mb-0 text-sm">Mandatory informations</p>
+                <div class="multisteps-form__content">
+                    <div class="row mt-3">
+                        <div class="col-12 col-sm-6">
+                            <label>
+                                Full Name
+                                <span id="name-err" class="ms-2 text-xxs text-danger" style="display: none;"></span>
+                            </label>
+                            <input class="form-control" type="text" id="name" placeholder="eg. Nguyen Van A">
+                        </div>
+                        <div class="col-12 col-sm-3 mt-3 mt-sm-0">
+                            <label>Gender</label>
+                            <div class="choices" data-type="select-one">
+                                <select class="form-control" id="gender">
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-3 mt-3 mt-sm-0">
+                            <label>
+                                Birthday
+                                <span id="birthday-err" class="ms-2 text-xxs text-danger" style="display: none;"></span>
+                            </label>
+                            <input class="form-control" type="date" id="birthday">
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-12 col-sm-6">
+                            <label>
+                                Gmail
+                                <span id="gmail-err" class="ms-2 text-xxs text-danger" style="display: none;"></span>
+                            </label>
+                            <input class="form-control" type="email" id="gmail" placeholder="eg. staff@gmail.com">
+                        </div>
+                        <div class="col-12 col-sm-6 mt-3 mt-sm-0">
+                            <label>
+                                Phone Number
+                                <span id="phone-err" class="ms-2 text-xxs text-danger" style="display: none;"></span>
+                            </label>
+                            <input class="form-control" type="text" id="phone" placeholder="eg. 0987654321">
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-12 col-sm-2">
+                            <label>Address
+                                <span id="num-err" class="ms-2 text-xxs text-danger" style="display: none;"></span>
+                            </label>
+                            <input class="form-control" type="text" id="num" placeholder="No.">
+                        </div>
+                        <div class="col-12 col-sm-4">
+                            <label>&nbsp;
+                                <span id="street-err" class="text-xxs text-danger" style="display: none;"></span>
+                            </label>
+                            <input class="form-control" type="text" id="street" placeholder="Street">
+                        </div>
+                        <div class="col-12 col-sm-2">
+                            <label>&nbsp;
+                                <span id="ward-err" class="text-xxs text-danger" style="display: none;"></span>
+                            </label>
+                            <input class="form-control" type="text" id="ward" placeholder="Ward">
+                        </div>
+                        <div class="col-12 col-sm-2">
+                            <label>&nbsp;
+                                <span id="district-err" class="text-xxs text-danger" style="display: none;"></span>
+                            </label>
+                            <input class="form-control" type="text" id="district" placeholder="District">
+                        </div>
+                        <div class="col-12 col-sm-2 mt-3 mt-sm-0">
+                            <label>&nbsp;
+                                <span id="city-err" class="text-xxs text-danger" style="display: none;"></span>
+                            </label>
+                            <input class="form-control" type="text" id="city" placeholder="City">
+                        </div>
+                    </div>
+                    <div class="button-row d-flex mt-4">
+                        <button class="btn bg-gradient-dark ms-auto mb-0" type="button" id="next-btn">Next</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="modal fade" id="verifyModal" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
+    <div class="modal-dialog modal- modal-dialog-centered modal-" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title" id="modal-title-default"><b>Verify Account
+                        Registration</b>
+                </h6>
+                <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>After you verify this message, the system will send a login link that is valid for
+                    <b>1 minute</b>
+                    to use for the first login.
+                </p>
+                <p>Please remind the staff to check their gmail immediately and change account
+                    passwords.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="confirm-btn" class="btn bg-gradient-success"
+                    data-bs-dismiss="modal">Confirm</button>
+                <button type="button" class="btn bg-gradient-secondary ml-auto" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Created -->
+<div class="modal fade" id="createdModal" tabindex="-1" role="dialog" aria-labelledby="success-modal"
+    aria-hidden="true">
+    <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="text-center">
+                    <div class="swal2-icon swal2-success swal2-icon-show" style="display: flex;">
+                        <div class="swal2-success-circular-line-left" style="background-color: rgb(255, 255, 255);">
+                        </div>
+                        <span class="swal2-success-line-tip"></span> <span class="swal2-success-line-long"></span>
+                        <div class="swal2-success-ring"></div>
+                        <div class="swal2-success-fix" style="background-color: rgb(255, 255, 255);"></div>
+                        <div class="swal2-success-circular-line-right" style="background-color: rgb(255, 255, 255);">
+                        </div>
+                    </div>
+                    <h3 id="modal-created-title" class="font-weight-bolder opacity-9 mt-4"></h3>
+                    <p id="modal-created-msg"></p>
+                </div>
+                <div class="d-flex justify-content-center mt-4">
+                    <button type="button" class="btn bg-gradient-info me-2 change-screen"
+                        onclick="window.location.href='/account'">Go Staff List</button>
+                    <button type="button" class="btn bg-gradient-success change-screen"
+                        onclick="window.location.reload();">Continue Regist</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

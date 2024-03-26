@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="/assets/img/favicon.png">
+    <title>S T A R B O Y</title>
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+    <link href="https://db.onlinewebfonts.com/c/7035ead8175cc6b0fe6c460be5baca9a?family=Frisans+W01+Bold"
+        rel="stylesheet">
+    <!-- Nucleo Icons -->
+    <link href="/assets/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="/assets/css/nucleo-svg.css" rel="stylesheet" />
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <link href="/assets/css/nucleo-svg.css" rel="stylesheet" />
+    <!-- CSS Files -->
+    <link id="pagestyle" href="/assets/css/soft-ui-dashboard.css?v=1.0.7" rel="stylesheet" />
+</head>
+
+<body class="g-sidenav-show bg-gray-100 g-sidenav-pinned">
+    {{{body}}}
+
+    <footer class="footer py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mb-4 mx-auto text-center">
+                    <a href="javascript:;" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+                        Company
+                    </a>
+                    <a href="javascript:;" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+                        About Us
+                    </a>
+                    <a href="javascript:;" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+                        Team
+                    </a>
+                    <a href="javascript:;" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+                        Products
+                    </a>
+                    <a href="javascript:;" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+                        Blog
+                    </a>
+                    <a href="javascript:;" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+                        Pricing
+                    </a>
+                </div>
+                <div class="col-lg-8 mx-auto text-center mb-4 mt-2">
+                    <a href="javascript:;" target="_blank" class="text-secondary me-xl-4 me-4">
+                        <span class="text-lg fab fa-dribbble" aria-hidden="true"></span>
+                    </a>
+                    <a href="javascript:;" target="_blank" class="text-secondary me-xl-4 me-4">
+                        <span class="text-lg fab fa-twitter" aria-hidden="true"></span>
+                    </a>
+                    <a href="javascript:;" target="_blank" class="text-secondary me-xl-4 me-4">
+                        <span class="text-lg fab fa-instagram" aria-hidden="true"></span>
+                    </a>
+                    <a href="javascript:;" target="_blank" class="text-secondary me-xl-4 me-4">
+                        <span class="text-lg fab fa-pinterest" aria-hidden="true"></span>
+                    </a>
+                    <a href="javascript:;" target="_blank" class="text-secondary me-xl-4 me-4">
+                        <span class="text-lg fab fa-github" aria-hidden="true"></span>
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-8 mx-auto text-center mt-1">
+                    <p class="mb-0 text-secondary">
+                        Copyright ©
+                        <script>
+                            document.write(new Date().getFullYear())
+                        </script> by STARBOY
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal Loading -->
+    <div class="modal fade" id="loadingModal" tabindex="-1" role="dialog" aria-labelledby="success-modal"
+        aria-hidden="true" data-bs-backdrop="static">
+        <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="text-center">
+                        <div class="spinner-border text-default"
+                            style="margin-top: 1.5rem; --bs-spinner-width: 3rem; --bs-spinner-height: 3rem;"></div>
+                        <h3 class="font-weight-bolder opacity-9 mt-4">Loading...</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Success -->
+    <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="success-modal"
+        aria-hidden="true">
+        <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="text-center">
+                        <div class="swal2-icon swal2-success swal2-icon-show" style="display: flex;">
+                            <div class="swal2-success-circular-line-left" style="background-color: rgb(255, 255, 255);">
+                            </div>
+                            <span class="swal2-success-line-tip"></span> <span class="swal2-success-line-long"></span>
+                            <div class="swal2-success-ring"></div>
+                            <div class="swal2-success-fix" style="background-color: rgb(255, 255, 255);"></div>
+                            <div class="swal2-success-circular-line-right"
+                                style="background-color: rgb(255, 255, 255);"></div>
+                        </div>
+                        <h3 id="modal-success-title" class="font-weight-bolder opacity-9 mt-4"></h3>
+                        <p id="modal-success-msg"></p>
+                    </div>
+                    <div class="d-flex justify-content-center mt-4">
+                        <button type="button" class="btn bg-gradient-info" data-bs-dismiss="modal">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Fail -->
+    <div class="modal fade" id="failModal" tabindex="-1" role="dialog" aria-labelledby="fail-modal" aria-hidden="true">
+        <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="text-center">
+                        <div class="swal2-icon swal2-error swal2-icon-show" style="display: flex;"><span
+                                class="swal2-x-mark">
+                                <span class="swal2-x-mark-line-left"></span>
+                                <span class="swal2-x-mark-line-right"></span>
+                            </span>
+                        </div>
+                        <h3 class="font-weight-bolder opacity-9 mt-4">Failed!</h3>
+                        <p id="message-modal-fail"></p>
+                    </div>
+                    <div class="d-flex justify-content-center mt-4">
+                        <button type="button" class="btn bg-gradient-info" data-bs-dismiss="modal">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--   Core JS Files   -->
+    <script src="/assets/js/core/popper.min.js"></script>
+    <script src="/assets/js/core/bootstrap.min.js"></script>
+    <script src="/assets/js/plugins/perfect-scrollbar.min.js"></script>
+    <script src="/assets/js/plugins/smooth-scrollbar.min.js"></script>
+    <!-- page script -->
+    <script>
+        var win = navigator.platform.indexOf('Win') > -1;
+        if (win && document.querySelector('#sidenav-scrollbar')) {
+            var options = {
+                damping: '0.5'
+            }
+            Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+        }
+    </script>
+
+    <!-- Jqeury -->
+    <script src="/assets/plugins/jquery/jquery.min.js"></script>
+
+    {{#if script}}
+    <script src="/javascripts/{{script}}.js"></script>
+    {{/if}}
+
+    <!-- Github buttons -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+    <script src="/assets/js/soft-ui-dashboard.min.js?v=1.1.1"></script>
+</body>
+
+</html>

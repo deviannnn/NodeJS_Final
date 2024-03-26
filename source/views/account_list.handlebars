@@ -1,0 +1,362 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card mb-4">
+            <div class="card-header pb-0">
+                <div class="d-lg-flex">
+                    <div class="col-12 col-sm-12 col-md-6">
+                        <h5 class="mb-0">Account table</h5>
+                        <p class="text-sm mb-0">
+                            Tip: you can edit the <b>STATUS</b> & <b>LOCKED</b> attributes by clicking on
+                            the tag corresponding to that account
+                        </p>
+                    </div>
+                    <div class="ms-auto my-auto mt-lg-0 mt-4">
+                        <div class="ms-auto my-auto">
+                            <a href="/account/register" class="btn bg-gradient-primary btn-sm mb-0">+&nbsp;New
+                                Account</a>
+                            <button type="button" class="btn btn-outline-primary btn-sm mb-0" data-bs-toggle="modal"
+                                data-bs-target="#import">Import</button>
+                            <div class="modal fade" id="import" tabindex="-1" style="display: none;" aria-hidden="true">
+                                <div class="modal-dialog mt-lg-10">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="ModalLabel">Import CSV</h5>
+                                            <i class="fas fa-upload ms-3" aria-hidden="true"></i>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>You can browse your computer for a file.</p>
+                                            <input type="text" placeholder="Browse file..." class="form-control mb-3"
+                                                onfocus="focused(this)" onfocusout="defocused(this)">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="importCheck" checked="">
+                                                <label class="custom-control-label" for="importCheck">I
+                                                    accept the terms and conditions</label>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn bg-gradient-secondary btn-sm"
+                                                data-bs-dismiss="modal">Close</button>
+                                            <button type="button" class="btn bg-gradient-primary btn-sm">Upload</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn btn-outline-primary btn-sm export mb-0 mt-sm-0 mt-1" data-type="csv"
+                                type="button" name="button">Export</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body px-0 pt-0 pb-2">
+                <div class="table-responsive p-0">
+                    <table id="example2" class="table align-items-center mb-0">
+                        <thead>
+                            <tr>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder">
+                                    User</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder ps-2">
+                                    Status</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder ps-2">
+                                    Employed</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder ps-2">
+                                    Locked</th>
+                                <th style="width: 15%"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Ressend Mail model -->
+<div class="modal fade" id="resendMailModal" tabindex="-1" role="dialog" aria-labelledby="delete-modal"
+    aria-hidden="true">
+    <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
+        <div class="modal-content">
+            <div class="modal-body p-4">
+                <div class="text-center">
+                    <div class="swal2-icon swal2-info swal2-icon-show" style="display: flex; margin-top: 15px;">
+                        <div class="swal2-icon-content"><i class="fas fa-envelope"></i></div>
+                    </div>
+                    <p>You will resend a login link that is valid for <b>1 minute</b>
+                        to <span class="current-account text-bolder"></span>
+                    </p>
+                </div>
+                <div class="d-flex justify-content-center mt-4">
+                    <input type="text" id="resendMailId" hidden>
+                    <button type="button" class="btn btn bg-gradient-success mx-2" data-bs-dismiss="modal"
+                        id="confirm-resend-btn"><i class="fas fa-paper-plane"></i> Send</button>
+                    <button type="button" class="btn bg-gradient-danger mx-1" data-bs-dismiss="modal">No,
+                        Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Toggle Lock -->
+<div class="modal fade" id="toggleLockModal" tabindex="-1" role="dialog" aria-labelledby="delete-modal"
+    aria-hidden="true">
+    <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
+        <div class="modal-content">
+            <div class="modal-body p-4">
+                <div class="text-center">
+                    <div id="lock-status">
+                        <div class="swal2-icon swal2-danger swal2-icon-show" style="display: flex; margin-top: 15px;">
+                            <div class="swal2-icon-content"><i class="fas fa-lock"></i></div>
+                        </div>
+                        <p>
+                            You will <span class="text-bolder text-danger">Lock</span>
+                            <span class="lock-name text-bolder"></span>'s account and
+                            <span class="lock-gender"></span> won't be able to use this website anymore.
+                        </p>
+                    </div>
+                    <div id="unlock-status">
+                        <div class="swal2-icon swal2-success swal2-icon-show" style="display: flex; margin-top: 15px;">
+                            <div class="swal2-icon-content"><i class="fas fa-unlock"></i></div>
+                        </div>
+                        <p>
+                            You will <span class="text-bolder text-success">Unlock</span>
+                            <span class="lock-name text-bolder"></span>'s account and
+                            <span class="lock-gender"></span> will continue to be able to use this website.
+                        </p>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center mt-4">
+                    <input type="text" id="lockedId" hidden>
+                    <input type="text" id="lockedValue" hidden>
+                    <button type="button" class="btn btn bg-gradient-success mx-2" data-bs-dismiss="modal"
+                        id="confirm-lock-btn">Yes!</button>
+                    <button type="button" class="btn bg-gradient-danger mx-1" data-bs-dismiss="modal">No,
+                        Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Detail -->
+<div class="modal fade" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="detail-modal" aria-hidden="true"
+    style="--bs-modal-width: 900px;">
+    <div class="modal-dialog modal- modal-dialog-centered modal-" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-bolder">Account Detail</h5>
+                <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-3 text-center">
+                        <h6>Account Avatar</h6>
+                        <img id="detail-img-account" class="w-lg-70 w-30" src="/uploads/accounts/default.png">
+                    </div>
+                    <div class="col-lg-9 mt-lg-0 mt-4">
+                        <h6 class="text-center">Account Information</h6>
+                        <div class="row">
+                            <div class="col-12 d-flex">
+                                <h6 class="col-2-5">Id:</h6>
+                                <span id="detail-id-account"></span>
+                            </div>
+                            <div class="col-12 d-flex">
+                                <h6 class="col-2-5">Full Name:</h6>
+                                <span id="detail-name-account"></span>
+                            </div>
+                            <div class="col-12 d-flex">
+                                <h6 class="col-2-5">Gender:</h6>
+                                <span class="text-capitalize" id="detail-gender-account"></span>
+                            </div>
+                            <div class="col-12 d-flex">
+                                <h6 class="col-2-5">Gmail:</h6>
+                                <span id="detail-gmail-account"></span>
+                            </div>
+                            <div class="col-12 d-flex">
+                                <h6 class="col-2-5">Phone:</h6>
+                                <span id="detail-phone-account"></span>
+                            </div>
+                            <div class="col-12 d-flex">
+                                <h6 class="col-2-5">Birthday:</h6>
+                                <span id="detail-birthday-account"></span>
+                            </div>
+                            <div class="col-12 d-flex">
+                                <h6 class="col-2-5">Address:</h6>
+                                <span style="text-align: left" id="detail-address-account"></span>
+                            </div>
+                            <div class="col-12 d-flex">
+                                <h6 class="col-2-5 m-0">Role:</h6>
+                                <span id="detail-role-account"></span>
+                            </div>
+                            <div class="col-12 mt-2 d-flex">
+                                <h6 class="col-2-5 m-0">Status:</h6>
+                                <span id="detail-status-account"></span>
+                            </div>
+                            <div class="col-12 mt-2 d-flex">
+                                <h6 class="col-2-5 m-0">Locked:</h6>
+                                <span id="detail-locked-account"></span>
+                            </div>
+                            <div class="col-12 mt-2 d-flex">
+                                <h6 class="col-2-5">Created Date:</h6>
+                                <span id="detail-created-account"></span>
+                            </div>
+                            <div class="col-12 d-flex">
+                                <h6 class="col-2-5">Latest Updates:</h6>
+                                <span id="detail-updated-account"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn bg-gradient-secondary ml-auto" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Edit -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="edit-modal" aria-hidden="true"
+    style="--bs-modal-width: 800px;">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-bolder">Edit Account</h5>
+                <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row mt-3">
+                    <input type="text" id="Id" hidden>
+                    <div class="col-12 col-sm-6">
+                        <label>
+                            Full Name
+                            <span id="name-err" class="ms-2 text-xxs text-danger" style="display: none;"></span>
+                        </label>
+                        <input class="form-control" type="text" id="name" placeholder="eg. Nguyen Van A">
+                    </div>
+                    <div class="col-12 col-sm-3 mt-3 mt-sm-0">
+                        <label>Gender</label>
+                        <div class="choices" data-type="select-one">
+                            <select class="form-control" id="gender">
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-3 mt-3 mt-sm-0">
+                        <label>
+                            Birthday
+                            <span id="birthday-err" class="ms-2 text-xxs text-danger" style="display: none;"></span>
+                        </label>
+                        <input class="form-control" type="date" id="birthday">
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-12 col-sm-6">
+                        <label>
+                            Gmail
+                            <span id="gmail-err" class="ms-2 text-xxs text-danger" style="display: none;"></span>
+                        </label>
+                        <input class="form-control" type="email" id="gmail" placeholder="eg. staff@gmail.com">
+                    </div>
+                    <div class="col-12 col-sm-6 mt-3 mt-sm-0">
+                        <label>
+                            Phone Number
+                            <span id="phone-err" class="ms-2 text-xxs text-danger" style="display: none;"></span>
+                        </label>
+                        <input class="form-control" type="text" id="phone" placeholder="eg. 0987654321">
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-12 col-sm-4">
+                        <label>Address
+                            <span id="num-err" class="ms-2 text-xxs text-danger" style="display: none;"></span>
+                        </label>
+                        <input class="form-control" type="text" id="num" placeholder="No.">
+                    </div>
+                    <div class="col-12 col-sm-8">
+                        <label>&nbsp;
+                            <span id="street-err" class="text-xxs text-danger" style="display: none;"></span>
+                        </label>
+                        <input class="form-control" type="text" id="street" placeholder="Street">
+                    </div>
+                    <div class="col-12 col-sm-4">
+                        <label>&nbsp;
+                            <span id="ward-err" class="text-xxs text-danger" style="display: none;"></span>
+                        </label>
+                        <input class="form-control" type="text" id="ward" placeholder="Ward">
+                    </div>
+                    <div class="col-12 col-sm-4">
+                        <label>&nbsp;
+                            <span id="district-err" class="text-xxs text-danger" style="display: none;"></span>
+                        </label>
+                        <input class="form-control" type="text" id="district" placeholder="District">
+                    </div>
+                    <div class="col-12 col-sm-4 mt-3 mt-sm-0">
+                        <label>&nbsp;
+                            <span id="city-err" class="text-xxs text-danger" style="display: none;"></span>
+                        </label>
+                        <input class="form-control" type="text" id="city" placeholder="City">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn bg-gradient-dark" id="next-edit-btn">Next</button>
+            </div>
+            <!-- Modal Confirm Edit -->
+            <div class="modal fade" id="verifyEditModal" tabindex="-1" role="dialog" aria-labelledby="delete-modal"
+                aria-hidden="true">
+                <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body p-4">
+                            <div class="text-center">
+                                <div class="swal2-icon swal2-info swal2-icon-show"
+                                    style="display: flex; margin-top: 15px;">
+                                    <div class="swal2-icon-content">?</div>
+                                </div>
+                                <h3 class="font-weight-bolder opacity-9 mt-4">Are you sure?</h3>
+                                <p>The infomation of this Staff will be changed</p>
+                            </div>
+                            <div class="d-flex justify-content-center mt-4">
+                                <button type="button" class="btn btn bg-gradient-success mx-2" data-bs-dismiss="modal"
+                                    id="confirm-edit-btn">Yes!</button>
+                                <button type="button" class="btn bg-gradient-danger mx-1" data-bs-dismiss="modal">No,
+                                    Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Delete -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="delete-modal" aria-hidden="true">
+    <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
+        <div class="modal-content">
+            <div class="modal-body p-4">
+                <div class="text-center">
+                    <div class="swal2-icon swal2-warning swal2-icon-show" style="display: flex; margin-top: 15px;">
+                        <div class="swal2-icon-content">!</div>
+                    </div>
+                    <h3 class="font-weight-bolder opacity-9 mt-4">Are you sure?</h3>
+                    <p>You won't be able to revert this account <span class="current-account text-bolder"></span>!</p>
+                </div>
+                <div class="d-flex justify-content-center mt-4">
+                    <input type="text" id="deleteId" hidden>
+                    <button type="button" class="btn btn bg-gradient-success mx-2" data-bs-dismiss="modal"
+                        id="confirm-del-btn">Yes, Delete it!</button>
+                    <button type="button" class="btn bg-gradient-danger mx-1" data-bs-dismiss="modal">No,
+                        Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

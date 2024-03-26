@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="/assets/img/favicon.png">
+    <title>S T A R B O Y</title>
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+    <link href="https://db.onlinewebfonts.com/c/7035ead8175cc6b0fe6c460be5baca9a?family=Frisans+W01+Bold"
+        rel="stylesheet">
+    <!-- Nucleo Icons -->
+    <link href="/assets/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="/assets/css/nucleo-svg.css" rel="stylesheet" />
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <link href="/assets/css/nucleo-svg.css" rel="stylesheet" />
+    <!-- CSS Files -->
+    <link id="pagestyle" href="/assets/css/soft-ui-dashboard.css?v=1.0.7" rel="stylesheet" />
+    <!-- DataTables -->
+    <link rel="stylesheet" href="/assets/plugins/datatables-bs4/css/dataTables.bootstrap4.css">
+</head>
+
+<body class="g-sidenav-show bg-gray-100 g-sidenav-pinned">
+    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6-5 mx-auto">
+                    <form class="" action="index.html" method="post">
+                        <div class="card">
+                            <div class="card-header text-center">
+                                <div class="row">
+                                    <div class="col-12 text-center">
+                                        <img class="w-25 p-2" src="/assets/img/logo-ct-dark.png" alt="Logo">
+                                        <h4 class="ms-1" style="font-family: Frisans W01 Bold">
+                                            STARBOYPOS</h4>
+                                        <h6>
+                                            17 Nguyen Huu Tho, Ward Tan Hung, District 7, Ho Chi Minh City
+                                        </h6>
+                                        <p class=" d-block text-secondary">tel: (+84) 999999999</p>
+                                    </div>
+                                    <div class="col-12 text-start mt-3 ps-4">
+                                        <h6 class="mb-0 text-start">
+                                            Invoice no
+                                            <span class="font-weight-normal text-dark ms-2">#{{order.Id}}</span>
+                                        </h6>
+                                        <h6 class="mb-0 text-start">
+                                            Date:
+                                            <span class="font-weight-normal text-dark ms-5">{{order.date}}</span>
+                                        </h6>
+                                        <h6 class="mb-0 text-start">
+                                            Customer:
+                                            <span class="font-weight-normal text-dark ms-2">{{order.customer}}</span>
+                                        </h6>
+                                        <h6 class="mb-0 text-start">
+                                            Cashier:&nbsp;
+                                            <span class="font-weight-normal text-dark ms-4">{{order.cashier}}</span>
+                                        </h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body pt-0 pb-0">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="table-responsive">
+                                            <table class="table text-right">
+                                                <thead class="bg-default">
+                                                    <tr>
+                                                        <th scope="col" class="pe-2 h6 text-start ps-2">
+                                                            Item</th>
+                                                        <th scope="col" class="pe-2 h6">Qty</th>
+                                                        <th scope="col" class="pe-2 h6" colspan="2">
+                                                            Price</th>
+                                                        <th scope="col" class="pe-2 h6 text-end">Amount</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {{#each order.items}}
+                                                    <tr>
+                                                        <td class="text-start">({{barcode}}) {{name}} {{color}}</td>
+                                                        <td class="ps-4">{{quantity}}</td>
+                                                        <td class="ps-4" colspan="2">{{price}}</td>
+                                                        <td class="ps-4 text-end">{{amount}}</td>
+                                                    </tr>
+                                                    {{/each}}
+                                                </tbody>
+                                                <tfoot>
+                                                    <tr>
+                                                        <th></th>
+                                                        <th></th>
+                                                        <th class="h6 ps-4 pb-0" colspan="2">Sub Total:</th>
+                                                        <th colspan="1" class="text-end h6 ps-4 pb-0">
+                                                            {{order.summaryAmount.subTotal}}</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th></th>
+                                                        <th></th>
+                                                        <th class="h6 ps-4 pb-0" colspan="2">Discount:</th>
+                                                        <th colspan="1" class="text-end h6 ps-4 pb-0">
+                                                            {{order.summaryAmount.discount}}</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th></th>
+                                                        <th></th>
+                                                        <th class="h6 ps-4 pb-0" colspan="2">Voucher:</th>
+                                                        <th colspan="1" class="text-end h6 ps-4 pb-0">
+                                                            {{order.summaryAmount.voucher}}</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th></th>
+                                                        <th></th>
+                                                        <th class="h6 ps-4 pb-0" colspan="2">Grand Total:</th>
+                                                        <th colspan="1" class="text-end h6 ps-4 pb-0">
+                                                            {{order.summaryAmount.totalAmount}}</th>
+                                                    </tr>
+                                                </tfoot>
+                                            </table>
+                                            <table class="table text-right">
+                                                <tbody>
+                                                    <tr>
+                                                        <th class="text-sm text-start">Paid:
+                                                            <span class="text-uppercase">{{order.payment.method}}</span>
+                                                        </th>
+                                                        <th class="text-sm text-start">Type:
+                                                            <span class="text-uppercase">{{order.payment.type}}</span>
+                                                        </th>
+                                                        <th class="text-sm text-start">
+                                                            Receive: {{order.payment.receive}}
+                                                        </th>
+                                                        <th class="text-sm text-start">
+                                                            Change: {{order.payment.change}}
+                                                        </th>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer mt-0">
+                                <div class="row">
+                                    <div class="col-6 text-left">
+                                        <h5>Thank you!</h5>
+                                        <p class="text-secondary text-sm">If you encounter any issues related to the
+                                            invoice you can contact us at:</p>
+                                        <h6 class="text-secondary mb-0">
+                                            email:
+                                            <span class="text-dark">support_starboy@gmail.com</span>
+                                        </h6>
+                                    </div>
+                                    <div class="col-6 text-md-end mt-md-0 mt-3 d-print-none">
+                                        <button class="btn bg-gradient-info mt-lg-7 mb-0" onclick="window.print()"
+                                            type="button" name="button">Print</button>
+                                        <button class="btn bg-gradient-dark mt-lg-7 mb-0" onclick="window.location.href='/pos'"
+                                            type="button" name="button">Back to POS</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!--   Core JS Files   -->
+    <script src="/assets/js/core/popper.min.js"></script>
+    <script src="/assets/js/core/bootstrap.min.js"></script>
+    <script src="/assets/js/plugins/perfect-scrollbar.min.js"></script>
+    <script src="/assets/js/plugins/smooth-scrollbar.min.js"></script>
+    <!-- page script -->
+    <script>
+        var win = navigator.platform.indexOf('Win') > -1;
+        if (win && document.querySelector('#sidenav-scrollbar')) {
+            var options = {
+                damping: '0.5'
+            }
+            Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+        }
+    </script>
+
+    <!-- Jquery -->
+    <script src="/assets/plugins/jquery/jquery.min.js"></script>
+
+    <!-- DataTables -->
+    <script src="/assets/plugins/datatables/jquery.dataTables.js"></script>
+    <script src="/assets/plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
+
+    {{#if script}}
+    <script src="/javascripts/{{script}}.js"></script>
+    {{/if}}
+
+    <!-- Toggle Light/Dark -->
+    <script>
+        $(document).ready(function () {
+            if (localStorage.getItem('darkMode') === null) {
+                localStorage.setItem('darkMode', 'false');
+            }
+            darkMode();
+            $("#dark-version").on("change", function () {
+                if (this.checked) {
+                    localStorage.setItem('darkMode', 'true');
+                } else {
+                    localStorage.setItem('darkMode', 'false');
+                }
+                darkMode();
+            });
+        });
+
+        function darkMode() {
+            var t, a = document.getElementsByTagName("body")[0], n = document.querySelectorAll("div:not(.sidenav) > hr"), i = document.querySelector(".sidenav"), l = document.querySelectorAll(".sidenav.bg-white"), s = document.querySelectorAll("div:not(.bg-gradient-dark) hr"), r = document.querySelectorAll("button:not(.btn) > .text-dark"), o = document.querySelectorAll("span.text-dark, .breadcrumb .text-dark"), c = document.querySelectorAll("span.text-white, .breadcrumb .text-white"), d = document.querySelectorAll("strong.text-dark"), u = document.querySelectorAll("strong.text-white"), g = document.querySelectorAll("a.nav-link.text-dark"), m = document.querySelectorAll(".text-secondary"), v = document.querySelectorAll(".text-white"), f = document.querySelectorAll(".bg-gray-100"), h = document.querySelectorAll(".bg-gray-600"), b = document.querySelectorAll(".btn.btn-link.text-dark, .btn .ni.text-dark"), y = document.querySelectorAll(".btn.btn-link.text-white, .btn .ni.text-white"), p = document.querySelectorAll(".card.border"), x = document.querySelectorAll(".card.border.border-dark"), w = document.querySelectorAll(".navbar g"), L = document.querySelector(".navbar-brand-img"), S = L.src, k = document.querySelectorAll(".navbar-main .nav-link"), q = document.querySelectorAll(".card .nav .nav-link i"), A = document.querySelectorAll(".card .nav .nav-link span"), C = document.querySelectorAll(".fixed-plugin > .card"), B = document.querySelectorAll(".main-content .container-fluid .card");
+            if (localStorage.getItem('darkMode') === 'false') {
+                $("#dark-version").prop('checked', false);
+                a.classList.remove("dark-version"), i.classList.add("bg-white"), S.includes("logo-ct.png") && (t = S.replace("logo-ct", "logo-ct-dark"), L.src = t); for (E = 0; E < k.length; E++)k[E].classList.contains("text-dark") && (k[E].classList.add("text-white"), k[E].classList.remove("text-dark")); for (E = 0; E < q.length; E++)q[E].classList.contains("text-white") && (q[E].classList.remove("text-white"), q[E].classList.add("text-dark")); for (E = 0; E < A.length; E++)A[E].classList.contains("text-white") && A[E].classList.remove("text-white"); for (E = 0; E < B.length; E++)B[E].classList.add("blur", "shadow-blur"); for (E = 0; E < C.length; E++)C[E].classList.add("blur"); for (E = 0; E < n.length; E++)n[E].classList.contains("light") && (n[E].classList.add("dark"), n[E].classList.remove("light")); for (E = 0; E < s.length; E++)s[E].classList.contains("light") && (s[E].classList.add("dark"), s[E].classList.remove("light")); for (E = 0; E < r.length; E++)r[E].classList.contains("text-white") && (r[E].classList.remove("text-white"), r[E].classList.add("text-dark")); for (E = 0; E < c.length; E++)!c[E].classList.contains("text-white") || c[E].closest(".sidenav") || c[E].closest(".card.bg-gradient-dark") || (c[E].classList.remove("text-white"), c[E].classList.add("text-dark")); for (E = 0; E < u.length; E++)u[E].classList.contains("text-white") && (u[E].classList.remove("text-white"), u[E].classList.add("text-dark")); for (E = 0; E < v.length; E++)v[E].classList.contains("text-white") && (v[E].classList.remove("text-white"), v[E].classList.remove("opacity-8"), v[E].classList.add("text-secondary")); for (E = 0; E < h.length; E++)h[E].classList.contains("bg-gray-600") && (h[E].classList.remove("bg-gray-600"), h[E].classList.add("bg-gray-100")); for (E = 0; E < w.length; E++)w[E].hasAttribute("fill") && w[E].setAttribute("fill", "#6c757d"); for (E = 0; E < y.length; E++)y[E].closest(".card.bg-gradient-dark") || (y[E].classList.remove("text-white"), y[E].classList.add("text-dark")); for (E = 0; E < x.length; E++)x[E].classList.remove("border-dark");
+            } else {
+                $("#dark-version").prop('checked', true);
+                a.classList.add("dark-version"), S.includes("logo-ct-dark.png") && (t = S.replace("logo-ct-dark", "logo-ct"), L.src = t); for (var E = 0; E < B.length; E++)B[E].classList.contains("blur") && B[E].classList.remove("blur", "shadow-blur"); for (var E = 0; E < k.length; E++)k[E].classList.contains("text-white") && k[E].classList.remove("text-white"); for (var E = 0; E < C.length; E++)C[E].classList.contains("blur") && C[E].classList.remove("blur"); for (var E = 0; E < q.length; E++)q[E].classList.contains("text-dark") && (q[E].classList.remove("text-dark"), q[E].classList.add("text-white")); for (var E = 0; E < A.length; E++)A[E].classList.contains("text-sm") && A[E].classList.add("text-white"); for (var E = 0; E < n.length; E++)n[E].classList.contains("dark") && (n[E].classList.remove("dark"), n[E].classList.add("light")); for (var E = 0; E < s.length; E++)s[E].classList.contains("dark") && (s[E].classList.remove("dark"), s[E].classList.add("light")); for (var E = 0; E < r.length; E++)r[E].classList.contains("text-dark") && (r[E].classList.remove("text-dark"), r[E].classList.add("text-white")); for (var E = 0; E < o.length; E++)o[E].classList.contains("text-dark") && (o[E].classList.remove("text-dark"), o[E].classList.add("text-white")); for (var E = 0; E < d.length; E++)d[E].classList.contains("text-dark") && (d[E].classList.remove("text-dark"), d[E].classList.add("text-white")); for (var E = 0; E < g.length; E++)g[E].classList.contains("text-dark") && (g[E].classList.remove("text-dark"), g[E].classList.add("text-white")); for (var E = 0; E < m.length; E++)m[E].classList.contains("text-secondary") && (m[E].classList.remove("text-secondary"), m[E].classList.add("text-white"), m[E].classList.add("opacity-8")); for (var E = 0; E < f.length; E++)f[E].classList.contains("bg-gray-100") && (f[E].classList.remove("bg-gray-100"), f[E].classList.add("bg-gray-600")); for (var E = 0; E < b.length; E++)b[E].classList.remove("text-dark"), b[E].classList.add("text-white"); for (var E = 0; E < l.length; E++)l[E].classList.remove("bg-white"); for (var E = 0; E < w.length; E++)w[E].hasAttribute("fill") && w[E].setAttribute("fill", "#fff"); for (E = 0; E < p.length; E++)p[E].classList.add("border-dark");
+            }
+        }
+    </script>
+    <!-- Github buttons -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+    <script src="/assets/js/soft-ui-dashboard.min.js?v=1.1.1"></script>
+</body>
+
+</html>

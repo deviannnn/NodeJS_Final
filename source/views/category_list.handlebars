@@ -1,0 +1,222 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card mb-4">
+            <div class="card-header pb-0">
+                <div class="d-lg-flex">
+                    <div class="col-12 col-sm-12 col-md-6">
+                        <h5 class="mb-0">Category table</h5>
+                    </div>
+                    {{#if (eq user.role 'admin')}}
+                    <div class="ms-auto my-auto mt-lg-0 mt-4">
+                        <div class="ms-auto my-auto">
+                            <a href="/category/handle?source=add" class="btn bg-gradient-primary btn-sm mb-0">+&nbsp;New
+                                Category</a>
+                            <button type="button" class="btn btn-outline-primary btn-sm mb-0" data-bs-toggle="modal"
+                                data-bs-target="#import">Import</button>
+                            <div class="modal fade" id="import" tabindex="-1" style="display: none;" aria-hidden="true">
+                                <div class="modal-dialog mt-lg-10">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="ModalLabel">Import CSV</h5>
+                                            <i class="fas fa-upload ms-3" aria-hidden="true"></i>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>You can browse your computer for a file.</p>
+                                            <input type="text" placeholder="Browse file..." class="form-control mb-3"
+                                                onfocus="focused(this)" onfocusout="defocused(this)">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="importCheck" checked="">
+                                                <label class="custom-control-label" for="importCheck">I
+                                                    accept the terms and conditions</label>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn bg-gradient-secondary btn-sm"
+                                                data-bs-dismiss="modal">Close</button>
+                                            <button type="button" class="btn bg-gradient-primary btn-sm">Upload</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn btn-outline-primary btn-sm export mb-0 mt-sm-0 mt-1" data-type="csv"
+                                type="button" name="button">Export</button>
+                        </div>
+                    </div>
+                    {{/if}}
+                </div>
+            </div>
+            <div class="card-body px-0 mt-3 pt-0 pb-2">
+                <div class="table-responsive p-0">
+                    <table id="example2" class="table align-items-center mb-0">
+                        <thead>
+                            <tr>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder">
+                                    Name</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder ps-2">
+                                    Specifications</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder ps-2">
+                                    Status</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder ps-2">
+                                    Updated</th>
+                                <th style="width: 15%"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#if categories}}
+                            {{#each categories}}
+                            <tr>
+                                <td>
+                                    <span class="text-secondary text-md font-weight-bold px-3">{{name}}</span>
+                                </td>
+                                {{#if specs}}
+                                <td>
+                                    {{#each specs}}
+                                    <span class="text-secondary text-xs font-weight-bold">{{name}}</span><br>
+                                    {{/each}}
+                                </td>
+                                {{else}}
+                                <td></td>
+                                {{/if}}
+                                <td>
+                                    {{#if (eq status true)}}
+                                    <span class="btn {{#if (eq ../user.role 'admin')}} status {{/if}} badge badge-sm bg-gradient-success" data-id="{{id}}">actived</span>
+                                    {{else}}
+                                    <span class="btn {{#if (eq ../user.role 'admin')}} status {{/if}}  badge badge-sm bg-gradient-secondary" data-id="{{id}}">unactived</span>
+                                    {{/if}}
+                                </td>
+                                <td>
+                                    <span class="text-secondary text-xs font-weight-bold">{{updated}}</span>
+                                </td>
+                                <td>
+                                    <a class="action-btn detail" data-id="{{id}}">
+                                        <i class="fas fa-eye text-primary text-gradient" aria-hidden="true"></i>
+                                    </a>
+                                    {{#if (eq ../user.role 'admin')}}
+                                    <a class="action-btn edit mx-3" href="/category/handle?source=edit&id={{id}}">
+                                        <i class="fas fa-pencil-alt text-dark text-gradient" aria-hidden="true"></i>
+                                    </a>
+                                    <a class="action-btn {{#if (eq del true)}} delete {{else}} cannot-delete {{/if}}"
+                                        data-id="{{id}}">
+                                        <i class="far fa-trash-alt {{#if (eq del true)}}text-danger text-gradient{{else}}text-secondary{{/if}}"
+                                            aria-hidden="true"></i>
+                                    </a>
+                                    {{/if}}
+                                </td>
+                            </tr>
+                            {{/each}}
+                            {{/if}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Detail -->
+<div class="modal fade" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="detail-modal" aria-hidden="true"
+    style="--bs-modal-width: 700px;">
+    <div class="modal-dialog modal- modal-dialog-centered modal-" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-bolder text-primary text-gradient">Category Detail</h5>
+                <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-12">
+                        <h6 class="font-weight-bolder text-center text-primary text-gradient">Category Information</h6>
+                        <div class="row">
+                            <div class="col-12 d-flex">
+                                <h6 class="col-4 col-lg-2-5">Name:</h6>
+                                <span class="me-2" id="detail-name-category"></span>
+                            </div>
+                            <div class="col-12 d-flex">
+                                <h6 class="col-4 col-lg-2-5">Specifications:</h6>
+                                <span id="detail-specs-category"></span>
+                            </div>
+                            <div class="col-12 mt-2 d-flex">
+                                <h6 class="col-4 col-lg-2-5 m-0">Status:</h6>
+                                <span id="detail-status-category"></span>
+                            </div>
+                            <div class="col-12 mt-2 d-flex">
+                                <h6 class="col-4 col-lg-2-5">Created Date:</h6>
+                                <span id="detail-created-category"></span>
+                            </div>
+                            <div class="col-12 d-flex">
+                                <h6 class="col-4 col-lg-2-5">Latest Updates:</h6>
+                                <span id="detail-updated-category"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn bg-gradient-secondary ml-auto" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Toggle Active -->
+<div class="modal fade" id="toggleActiveModal" tabindex="-1" role="dialog" aria-labelledby="active-modal"
+    aria-hidden="true">
+    <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
+        <div class="modal-content">
+            <div class="modal-body p-4">
+                <div class="text-center">
+                    <div id="unactive-status">
+                        <div class="swal2-icon swal2-danger swal2-icon-show" style="display: flex; margin-top: 15px;">
+                            <div class="swal2-icon-content"><i class="fas fa-lock"></i></div>
+                        </div>
+                        <p>You will stop activities related to this category
+                            <span class="current-cate text-bolder"></span>!
+                        </p>
+                    </div>
+                    <div id="active-status">
+                        <div class="swal2-icon swal2-success swal2-icon-show" style="display: flex; margin-top: 15px;">
+                            <div class="swal2-icon-content"><i class="fas fa-unlock"></i></div>
+                        </div>
+                        <p>You will enable activities related to this category
+                            <span class="current-cate text-bolder"></span>!
+                        </p>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center mt-4">
+                    <input type="text" id="actived-cate-id" hidden>
+                    <input type="text" id="activedValue" hidden>
+                    <button type="button" class="btn btn bg-gradient-success mx-2" data-bs-dismiss="modal"
+                        onclick="changeCategoryActived()">Yes!</button>
+                    <button type="button" class="btn bg-gradient-danger mx-1" data-bs-dismiss="modal">No,
+                        Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Delete -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="delete-modal" aria-hidden="true">
+    <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
+        <div class="modal-content">
+            <div class="modal-body p-4">
+                <div class="text-center">
+                    <div class="swal2-icon swal2-warning swal2-icon-show" style="display: flex; margin-top: 15px;">
+                        <div class="swal2-icon-content">!</div>
+                    </div>
+                    <h3 class="font-weight-bolder opacity-9 mt-4">Are you sure?</h3>
+                    <p>You won't be able to revert this category <span class="current-cate text-bolder"></span>!</p>
+                </div>
+                <div class="d-flex justify-content-center mt-4">
+                    <input type="text" id="delete-category-id" hidden>
+                    <button type="button" class="btn btn bg-gradient-success mx-2" data-bs-dismiss="modal"
+                        onclick="confirmDel()">Yes, Delete it!</button>
+                    <button type="button" class="btn bg-gradient-danger mx-1" data-bs-dismiss="modal">No,
+                        Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

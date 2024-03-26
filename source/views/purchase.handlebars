@@ -1,0 +1,177 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card mb-4">
+            <div class="card-header pb-0">
+                <div class="d-lg-flex">
+                    <div class="col-12 col-sm-12 col-md-6">
+                        <h5 class="mb-0">Purchase table</h5>
+                        <p class="text-sm mb-0">
+                            Tip: you can edit the <b>STATUS</b> & <b>LOCKED</b> attributes by clicking on
+                            the tag corresponding to that account
+                        </p>
+                    </div>
+                    <div class="ms-auto my-auto mt-lg-0 mt-4">
+                        <div class="ms-auto my-auto">
+                            <a href="add" class="btn bg-gradient-primary btn-sm mb-0">Go Purchase</a>
+                            <button type="button" class="btn btn-outline-primary btn-sm mb-0" data-bs-toggle="modal"
+                                data-bs-target="#import">Import</button>
+                            <div class="modal fade" id="import" tabindex="-1" style="display: none;" aria-hidden="true">
+                                <div class="modal-dialog mt-lg-10">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="ModalLabel">Import CSV</h5>
+                                            <i class="fas fa-upload ms-3" aria-hidden="true"></i>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>You can browse your computer for a file.</p>
+                                            <input type="text" placeholder="Browse file..." class="form-control mb-3"
+                                                onfocus="focused(this)" onfocusout="defocused(this)">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="importCheck" checked="">
+                                                <label class="custom-control-label" for="importCheck">I
+                                                    accept the terms and conditions</label>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn bg-gradient-secondary btn-sm"
+                                                data-bs-dismiss="modal">Close</button>
+                                            <button type="button" class="btn bg-gradient-primary btn-sm">Upload</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn btn-outline-primary btn-sm export mb-0 mt-sm-0 mt-1" data-type="csv"
+                                type="button" name="button">Export</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body px-0 pt-0 pb-2">
+                <div class="table-responsive p-0">
+                    <table id="example2" class="table align-items-center mb-0">
+                        <thead>
+                            <tr>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder">
+                                    User</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder ps-2">
+                                    Status</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder ps-2">
+                                    Employed</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder ps-2">
+                                    Locked</th>
+                                <th style="width: 15%"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="d-flex px-2 py-1">
+                                        <div>
+                                            <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-3"
+                                                alt="user1">
+                                        </div>
+                                        <div class="d-flex flex-column justify-content-center">
+                                            <h6 class="mb-0 text-sm">Neymar Jr</h6>
+                                            <p class="text-xs text-secondary mb-0">neymar10@gmail.com</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="badge badge-sm bg-gradient-success">actived</span>
+                                </td>
+                                <td>
+                                    <span class="text-secondary text-xs font-weight-bold">20/11/2023</span>
+                                </td>
+                                <td>
+                                    <span class="badge badge-sm bg-gradient-danger">locked</span>
+                                </td>
+                                <td class="text-center">
+                                    <!-- <a href="javascript:;" data-bs-toggle="tooltip"
+                                                    data-bs-original-title="Preview account">
+                                                    <i class="fas fa-eye text-secondary" aria-hidden="true"></i>
+                                                </a>
+                                                <a href="javascript:;" class="mx-3" data-bs-toggle="tooltip"
+                                                    data-bs-original-title="Edit account">
+                                                    <i class="fas fa-user-edit text-secondary" aria-hidden="true"></i>
+                                                </a>
+                                                <a href="javascript:;" data-bs-toggle="tooltip"
+                                                    data-bs-original-title="Delete account">
+                                                    <i class="fas fa-trash text-secondary" aria-hidden="true"></i>
+                                                </a> -->
+                                    <button type="button" class="detail" data-bs-toggle="modal"
+                                        data-bs-target="#detailModal" style="border: 0; background-color: transparent;">
+                                        <i class="fas fa-eye text-secondary" aria-hidden="true"></i>
+                                    </button>
+                                    <button type="button" class="edit" data-bs-toggle="modal"
+                                        data-bs-target="#editModal" style="border: 0; background-color: transparent;">
+                                        <i class="fas fa-user-edit text-secondary" aria-hidden="true"></i>
+                                    </button>
+                                    <button type="button" class="delete" data-bs-toggle="modal"
+                                        data-bs-target="#deleteModal" style="border: 0; background-color: transparent;">
+                                        <i class="fas fa-trash text-secondary" aria-hidden="true"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="d-flex px-2 py-1">
+                                        <div>
+                                            <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-3"
+                                                alt="user1">
+                                        </div>
+                                        <div class="d-flex flex-column justify-content-center">
+                                            <h6 class="mb-0 text-sm">Cristiano Ronaldo</h6>
+                                            <p class="text-xs text-secondary mb-0">cr7@gmail.com</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="badge badge-sm bg-gradient-secondary">inactived</span>
+                                </td>
+                                <td>
+                                    <span class="text-secondary text-xs font-weight-bold">20/04/2023</span>
+                                </td>
+                                <td>
+                                    <span class="badge badge-sm bg-gradient-info">nolock</span>
+                                </td>
+                                <td class="text-center">
+                                    <!-- <a href="javascript:;" data-bs-toggle="tooltip"
+                                                    data-bs-original-title="Preview account">
+                                                    <i class="fas fa-eye text-secondary" aria-hidden="true"></i>
+                                                </a>
+                                                <a href="javascript:;" class="mx-3" data-bs-toggle="tooltip"
+                                                    data-bs-original-title="Edit account">
+                                                    <i class="fas fa-user-edit text-secondary" aria-hidden="true"></i>
+                                                </a>
+                                                <a href="javascript:;" data-bs-toggle="tooltip"
+                                                    data-bs-original-title="Delete account">
+                                                    <i class="fas fa-trash text-secondary" aria-hidden="true"></i>
+                                                </a> -->
+                                    <button type="button" class="detail" data-bs-toggle="modal"
+                                        data-bs-target="#detailModal" style="border: 0; background-color: transparent;">
+                                        <i class="fas fa-eye text-secondary" aria-hidden="true"></i>
+                                    </button>
+                                    <button type="button" class="edit" data-bs-toggle="modal"
+                                        data-bs-target="#editModal" style="border: 0; background-color: transparent;">
+                                        <i class="fas fa-user-edit text-secondary" aria-hidden="true"></i>
+                                    </button>
+                                    <button type="button" class="delete" data-bs-toggle="modal"
+                                        data-bs-target="#deleteModal" style="border: 0; background-color: transparent;">
+                                        <i class="fas fa-trash text-secondary" aria-hidden="true"></i>
+                                    </button>
+                                    <button type="button" class="delete" data-bs-toggle="modal"
+                                        data-bs-target="#failModal" style="border: 0; background-color: transparent;">
+                                        fail
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
